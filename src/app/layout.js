@@ -17,11 +17,23 @@ const display = Rajdhani({
 });
 
 export const metadata = {
+  metadataBase: new URL(site.url),
   title: {
     default: `${site.name} — ${site.tagline}`,
     template: `%s · ${site.name}`,
   },
   description: site.description,
+  openGraph: {
+    title: site.name,
+    description: site.description,
+    siteName: site.name,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.name,
+    description: site.description,
+  },
 };
 
 export default function RootLayout({ children }) {
