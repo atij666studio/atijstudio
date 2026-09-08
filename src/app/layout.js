@@ -2,6 +2,7 @@ import { Inter, Rajdhani } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import MotionProvider from "@/components/motion/MotionProvider";
 import { site } from "@/lib/site";
 
 const body = Inter({
@@ -30,9 +31,11 @@ export default function RootLayout({ children }) {
       className={`${body.variable} ${display.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <MotionProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );

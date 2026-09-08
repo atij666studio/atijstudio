@@ -1,5 +1,6 @@
 import { Icon } from "@/components/Icons";
 import ContactForm from "@/components/ContactForm";
+import { HeroGroup, HeroItem, Reveal } from "@/components/motion/Reveal";
 import { site } from "@/lib/site";
 
 export const metadata = {
@@ -15,17 +16,19 @@ export default async function ContactPage({ searchParams }) {
   return (
     <section className="py-20">
       <div className="shell grid gap-12 lg:grid-cols-[1fr_1.1fr]">
-        <div>
-          <span className="eyebrow">Contact</span>
-          <h1 className="mt-4 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
-            Get in touch.
-          </h1>
-          <p className="mt-4 max-w-md text-lg text-muted">
-            Questions about a plugin, a download link, or just want to talk tone and neural amp modeling —
-            fill out the form or email us directly. We usually reply within a couple of business days.
-          </p>
+        <HeroGroup>
+          <HeroItem>
+            <span className="eyebrow">Contact</span>
+            <h1 className="mt-4 font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+              Get in touch.
+            </h1>
+            <p className="mt-4 max-w-md text-lg text-muted">
+              Questions about a plugin, a download link, or just want to talk tone and neural amp modeling —
+              fill out the form or email us directly. We usually reply within a couple of business days.
+            </p>
+          </HeroItem>
 
-          <div className="mt-10 flex flex-col gap-4">
+          <HeroItem className="mt-10 flex flex-col gap-4">
             <a
               href={`mailto:${site.email}`}
               className="flex items-center gap-3 text-sm text-foreground hover:text-accent-2"
@@ -46,10 +49,12 @@ export default async function ContactPage({ searchParams }) {
                 <Icon name="linkedin" className="h-5 w-5" />
               </a>
             </div>
-          </div>
-        </div>
+          </HeroItem>
+        </HeroGroup>
 
-        <ContactForm initialMessage={initialMessage} />
+        <Reveal delay={0.1}>
+          <ContactForm initialMessage={initialMessage} />
+        </Reveal>
       </div>
     </section>
   );

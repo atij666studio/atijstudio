@@ -39,6 +39,9 @@ Things still worth doing before this goes live:
   to `status: "available"` as each one actually ships, and give it a `slug`
   once it has its own page.
 - Fill in the real About page story in [src/app/about/page.js](src/app/about/page.js).
+- Set `donateUrl` in `site.js` once you've picked a donation platform (Ko-fi,
+  Buy Me a Coffee, PayPal.me, etc.) — it's `null` right now, which hides the
+  donate link everywhere it would otherwise appear.
 - The contact form currently opens the visitor's email client with a
   pre-filled message (see [src/components/ContactForm.js](src/components/ContactForm.js)).
   That works with zero setup, but if you'd rather have submissions land
@@ -50,6 +53,28 @@ Things still worth doing before this goes live:
 The SoulCrusher logo, wordmark, and background art in `public/soulcrusher/`
 were copied from `SoulCrusher/Resources/` in the main projects folder. If
 that art changes there, re-copy it here to keep the site in sync.
+
+## Scroll animation
+
+Sections fade/slide in as you scroll, similar to Apple or Neural DSP's
+sites, using [Framer Motion](https://motion.dev). The building blocks live
+in [src/components/motion/](src/components/motion/):
+
+- **`Reveal`** — fades a section in once it scrolls into view. Wrap any
+  block that isn't visible on first load.
+- **`RevealGroup` / `RevealItem`** — same idea for a grid or list, but each
+  item fades in slightly after the last (a "stagger").
+- **`HeroGroup` / `HeroItem`** — like the above, but plays immediately on
+  page load instead of waiting for scroll — use these for hero sections.
+- **`ParallaxLayer`** — a background image that drifts slower than the page
+  as you scroll past it (see the SoulCrusher hero).
+- **`AnimatedPath`** — an SVG line that draws itself in on scroll (see the
+  diagram on the Technology page).
+
+Visitors with "reduce motion" turned on at the OS level automatically get
+instant, non-animated versions of all of the above — that's handled once,
+globally, in `MotionProvider`. When adding a new section, wrap it with one
+of these instead of writing new animation code.
 
 ## Building for production
 
