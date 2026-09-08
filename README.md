@@ -1,6 +1,8 @@
 # Atiij Studio — website
 
-A Next.js + Tailwind CSS site for Atiij Studio.
+A Next.js + Tailwind CSS site for Atiij Studio — neural amp modeling and
+guitar tone software (SoulCrusher, the Parametric NAM engine, and the
+AtiNAMatiC / One Knob / Nex product lines).
 
 ## Running it locally
 
@@ -24,15 +26,30 @@ hunt through each page.
 Things still worth doing before this goes live:
 
 - Replace the placeholder `email`, `url`, and `social` links in `site.js`.
-- Swap the sample projects in `site.js` for real work, and the "About" page
-  copy in [src/app/about/page.js](src/app/about/page.js) for your real story.
-- Replace the placeholder logomark in [src/components/Logo.js](src/components/Logo.js)
-  and [src/app/icon.svg](src/app/icon.svg) with a real logo, if you get one made.
+- **Wire up the real SoulCrusher download.** The `/plugins/soulcrusher` page
+  currently sends people to the contact form instead of a direct download,
+  because the only installer found in the projects folder was tagged
+  `v1.0.0` while the plugin's own README says `v2.8.0` — shipping the old
+  build under the current version number would be worse than not linking
+  one yet. Once there's a current build: either drop it in `public/downloads/`
+  and link to it directly (fine for occasional downloads, but a ~35MB+ binary
+  bloats the git repo over time), or upload it as a GitHub Release asset /
+  object storage (S3, Cloudflare R2, Backblaze) and link to that URL instead.
+- Swap the "In development" product cards in `site.js` (`products` array)
+  to `status: "available"` as each one actually ships, and give it a `slug`
+  once it has its own page.
+- Fill in the real About page story in [src/app/about/page.js](src/app/about/page.js).
 - The contact form currently opens the visitor's email client with a
   pre-filled message (see [src/components/ContactForm.js](src/components/ContactForm.js)).
   That works with zero setup, but if you'd rather have submissions land
   directly (no email app popup), it can be wired to a form service or a
   small API route instead.
+
+## Brand assets
+
+The SoulCrusher logo, wordmark, and background art in `public/soulcrusher/`
+were copied from `SoulCrusher/Resources/` in the main projects folder. If
+that art changes there, re-copy it here to keep the site in sync.
 
 ## Building for production
 

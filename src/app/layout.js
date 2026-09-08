@@ -1,4 +1,4 @@
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Rajdhani } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -9,7 +9,7 @@ const body = Inter({
   subsets: ["latin"],
 });
 
-const display = Space_Grotesk({
+const display = Rajdhani({
   variable: "--font-display",
   subsets: ["latin"],
   weight: ["500", "600", "700"],

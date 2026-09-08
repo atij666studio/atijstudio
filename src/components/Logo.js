@@ -15,14 +15,14 @@ export function Mark({ size = 32 }) {
     >
       <defs>
         <linearGradient id="atij-mark-gradient" x1="0" y1="0" x2="32" y2="32">
-          <stop offset="0%" stopColor="#8b5cf6" />
-          <stop offset="100%" stopColor="#22d3c8" />
+          <stop offset="0%" stopColor="#d92b2b" />
+          <stop offset="100%" stopColor="#f5a623" />
         </linearGradient>
       </defs>
       <rect width="32" height="32" rx="9" fill="url(#atij-mark-gradient)" />
       <path
         d="M16 8L23 24H19.3L17.9 20.6H14.1L12.7 24H9L16 8ZM16 13.2L14.7 17.4H17.3L16 13.2Z"
-        fill="#07070b"
+        fill="#0a0707"
       />
     </svg>
   );

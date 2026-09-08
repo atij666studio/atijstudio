@@ -33,8 +33,8 @@ export default function Navbar() {
           })}
         </nav>
 
-        <Link href="/contact" className="btn-primary hidden md:inline-flex">
-          Start a project
+        <Link href="/plugins/soulcrusher" className="btn-primary hidden md:inline-flex">
+          Get SoulCrusher
         </Link>
 
         <button
@@ -62,11 +62,11 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="/contact"
+              href="/plugins/soulcrusher"
               onClick={() => setOpen(false)}
               className="btn-primary mt-2 justify-center"
             >
-              Start a project
+              Get SoulCrusher
             </Link>
           </nav>
         </div>

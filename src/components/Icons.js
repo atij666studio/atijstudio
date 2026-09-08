@@ -39,6 +39,24 @@ export function Icon({ name, className = "h-6 w-6" }) {
           <path d="M15 9l-2 6-6 2 2-6 6-2z" />
         </svg>
       );
+    case "flame":
+      return (
+        <svg {...common}>
+          <path d="M12 2c1 3-2 4-2 7a4 4 0 108 0c0-1-1-2-1-2 1 4-1 5-1 5 1-4-3-5-2-9-2 1-4 4-4 8a6 6 0 1012 0c0-5-4-6-4-9-1 1-2 2-2 3z" />
+        </svg>
+      );
+    case "waveform":
+      return (
+        <svg {...common}>
+          <path d="M2 12h2l1.5-6 3 15 3-18 3 12 2-6 1.5 3H22" />
+        </svg>
+      );
+    case "download":
+      return (
+        <svg {...common}>
+          <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" />
+        </svg>
+      );
     case "arrow-right":
       return (
         <svg {...common}>
