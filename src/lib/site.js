@@ -15,6 +15,11 @@ export const site = {
     twitter: "https://twitter.com/",
     linkedin: "https://linkedin.com/",
   },
+  // Studio-wide distribution policy: everything ships as freeware, no
+  // account or sign-up required — just click download and install. This
+  // drives the copy on the plugins pages, so keep it accurate.
+  distribution: "Free to download. No account, no sign-up — just click and install.",
+  donateUrl: null, // TODO: e.g. a Ko-fi / Buy Me a Coffee / PayPal.me link, once you pick one
 };
 
 export const nav = [
@@ -39,6 +44,11 @@ export const products = [
     tags: ["Distortion", "Neural Amp Capture", "VST3 / Standalone"],
     status: "available",
     platform: "Windows 10/11 (64-bit)",
+    price: "Free — donations welcome",
+    // TODO: point this at a real installer once a current build is hosted
+    // somewhere (GitHub Release / object storage). Leave null to keep the
+    // download button pointing at the contact page instead of a stale file.
+    downloadUrl: null,
   },
   {
     slug: null,
@@ -81,6 +91,10 @@ export const values = [
   {
     title: "Small team, direct line",
     description: "You're talking to the people actually building the plugin, not a support queue.",
+  },
+  {
+    title: "Free, no gatekeeping",
+    description: "No account walls, no email harvesting — click download and install. Donations are welcome, never required.",
   },
 ];
 

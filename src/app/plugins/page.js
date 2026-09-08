@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Icon } from "@/components/Icons";
-import { products } from "@/lib/site";
+import { products, site } from "@/lib/site";
 
 export const metadata = {
   title: "Plugins",
@@ -19,6 +19,7 @@ export default function PluginsPage() {
           <p className="mt-4 max-w-xl text-lg text-muted">
             One shipped product so far, and several more in active development.
           </p>
+          <p className="mt-3 text-sm font-medium text-accent-2">{site.distribution}</p>
         </div>
       </section>
 
@@ -34,6 +35,7 @@ export default function PluginsPage() {
                 </div>
                 <h2 className="mt-4 font-display text-xl font-semibold">{product.name}</h2>
                 <p className="mt-2 text-sm text-muted">{product.tagline}</p>
+                {product.price && <p className="mt-1 text-sm text-accent-2">{product.price}</p>}
                 <p className="mt-3 text-sm text-muted">{product.description}</p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {product.tags.map((tag) => (

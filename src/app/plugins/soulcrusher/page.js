@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/Icons";
-import { products } from "@/lib/site";
+import { products, site } from "@/lib/site";
 
 const product = products.find((p) => p.slug === "soulcrusher");
 
@@ -68,17 +68,40 @@ export default function SoulCrusherPage() {
           />
           <span className="tag-live">Available now — {product?.version}</span>
           <p className="max-w-xl text-lg text-muted">{product?.description}</p>
-          <div className="mt-2 flex flex-wrap gap-3">
-            <Link href="/contact?subject=SoulCrusher" className="btn-primary">
-              Request the installer <Icon name="download" className="h-4 w-4" />
-            </Link>
+          <p className="text-sm font-medium text-accent-2">{product?.price} · no account or sign-up required</p>
+
+          <div className="mt-2 flex flex-wrap items-center gap-3">
+            {product?.downloadUrl ? (
+              <a href={product.downloadUrl} download className="btn-primary">
+                Download for {product.platform?.split(" ")[0] ?? "Windows"} <Icon name="download" className="h-4 w-4" />
+              </a>
+            ) : (
+              <span className="btn-primary cursor-not-allowed opacity-50" aria-disabled="true">
+                Download — link going up soon <Icon name="download" className="h-4 w-4" />
+              </span>
+            )}
             <Link href="/technology" className="btn-secondary">
               How the engine works
             </Link>
           </div>
-          <p className="text-xs text-muted">
-            One-click download is coming directly to this page — for now, reach out and we&apos;ll send it straight over.
-          </p>
+
+          {site.donateUrl && (
+            <a
+              href={site.donateUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm text-muted underline decoration-border underline-offset-4 hover:text-accent-2"
+            >
+              Enjoying it? Support the studio with a donation
+            </a>
+          )}
+
+          {!product?.downloadUrl && (
+            <p className="text-xs text-muted">
+              The one-click download for this page is still being wired up — no forms, no sign-up, just a straight
+              link once it&apos;s live.
+            </p>
+          )}
         </div>
       </section>
 

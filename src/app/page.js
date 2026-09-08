@@ -66,6 +66,7 @@ export default function Home() {
                 {flagship.name} <span className="text-muted font-normal">{flagship.version}</span>
               </h2>
               <p className="mt-3 text-lg text-muted">{flagship.tagline}</p>
+              {flagship.price && <p className="mt-2 text-sm font-medium text-accent-2">{flagship.price}</p>}
               <p className="mt-4 max-w-lg text-sm text-muted">{flagship.description}</p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {flagship.tags.map((tag) => (
