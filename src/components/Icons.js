@@ -57,6 +57,12 @@ export function Icon({ name, className = "h-6 w-6" }) {
           <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2" />
         </svg>
       );
+    case "chevron-down":
+      return (
+        <svg {...common}>
+          <path d="M6 9l6 6 6-6" />
+        </svg>
+      );
     case "arrow-right":
       return (
         <svg {...common}>

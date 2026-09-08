@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/Icons";
 import { HeroGroup, HeroItem, Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
+import ScrollCue from "@/components/motion/ScrollCue";
 import { products, site, technology } from "@/lib/site";
 
 const flagship = products.find((p) => p.slug === "soulcrusher");
@@ -11,7 +12,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="grid-glow border-b border-border">
+      <section className="grid-glow relative border-b border-border">
         <HeroGroup className="shell flex flex-col items-start gap-6 py-24 md:py-32">
           <HeroItem>
             <span className="eyebrow">Neural amp modeling, built from scratch</span>
@@ -33,6 +34,7 @@ export default function Home() {
             </Link>
           </HeroItem>
         </HeroGroup>
+        <ScrollCue className="absolute bottom-8 left-0 right-0 hidden sm:flex" />
       </section>
 
       {/* Technology teaser */}
