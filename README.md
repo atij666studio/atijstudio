@@ -1,6 +1,6 @@
-# Atiij Studio — website
+# ATIJ STUDIO — website
 
-A Next.js + Tailwind CSS site for Atiij Studio — neural amp modeling and
+A Next.js + Tailwind CSS site for ATIJ STUDIO — neural amp modeling and
 guitar tone software (SoulCrusher, the Parametric NAM engine, and the
 AtiNAMatiC / One Knob / Nex product lines).
 
@@ -11,7 +11,9 @@ npm install   # only needed once, or after pulling new dependencies
 npm run dev
 ```
 
-Then open [http://localhost:3000](http://localhost:3000).
+Then open [http://localhost:3000/atijstudio](http://localhost:3000/atijstudio)
+(the site is published at https://atij666studio.github.io/atijstudio/, so it
+runs under `/atijstudio` locally too — see `basePath` in `next.config.mjs`).
 
 ## Editing content
 
@@ -35,9 +37,8 @@ Things still worth doing before this goes live:
   and link to it directly (fine for occasional downloads, but a ~35MB+ binary
   bloats the git repo over time), or upload it as a GitHub Release asset /
   object storage (S3, Cloudflare R2, Backblaze) and link to that URL instead.
-- Swap the "In development" product cards in `site.js` (`products` array)
-  to `status: "available"` as each one actually ships, and give it a `slug`
-  once it has its own page.
+- Edit the product cards in `site.js` (`products` array); set `status` to "available" and add a `downloadUrl` when a download goes live
+  (Gumroad link). Give it a `slug` once it has its own page.
 - Fill in the real About page story in [src/app/about/page.js](src/app/about/page.js).
 - Set `donateUrl` in `site.js` once you've picked a donation platform (Ko-fi,
   Buy Me a Coffee, PayPal.me, etc.) — it's `null` right now, which hides the

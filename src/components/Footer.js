@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Logo from "./Logo";
 import { Icon } from "./Icons";
 import { nav, site } from "@/lib/site";
@@ -17,9 +18,9 @@ export default function Footer() {
             <ul className="mt-3 flex flex-col gap-2">
               {nav.map((item) => (
                 <li key={item.href}>
-                  <a href={item.href} className="text-sm text-muted hover:text-foreground">
+                  <Link href={item.href} className="text-sm text-muted hover:text-foreground">
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Icon } from "@/components/Icons";
 import { ParallaxLayer } from "@/components/motion/Parallax";
 import { HeroGroup, HeroItem, Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
-import { products, site } from "@/lib/site";
+import { asset, products, site } from "@/lib/site";
 
 const product = products.find((p) => p.slug === "soulcrusher");
 
@@ -44,7 +44,7 @@ export default function SoulCrusherPage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border">
-        <ParallaxLayer src="/soulcrusher/bg.png" className="opacity-40" strength={25} />
+        <ParallaxLayer src={asset("/soulcrusher/bg.png")} className="opacity-40" strength={25} />
         <div
           className="absolute inset-0"
           style={{
@@ -57,7 +57,7 @@ export default function SoulCrusherPage() {
         <HeroGroup className="shell relative flex flex-col items-start gap-6 py-24 md:py-32">
           <HeroItem y={12}>
             <Image
-              src="/soulcrusher/wordmark.png"
+              src={asset("/soulcrusher/wordmark.png")}
               alt="SoulCrusher"
               width={449}
               height={136}

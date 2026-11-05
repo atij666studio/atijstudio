@@ -6,7 +6,7 @@ import { technology } from "@/lib/site";
 
 export const metadata = {
   title: "Technology",
-  description: "How Atiij Studio's parametric neural amp modeling engine works.",
+  description: "How ATIJ STUDIO's parametric neural amp modeling engine works.",
 };
 
 export default function TechnologyPage() {
@@ -62,7 +62,7 @@ export default function TechnologyPage() {
             </RevealItem>
 
             <RevealItem className="card border-accent/30">
-              <p className="text-xs font-medium uppercase tracking-wide text-accent-2">Atiij&apos;s parametric engine</p>
+              <p className="text-xs font-medium uppercase tracking-wide text-accent-2">ATIJ&apos;s parametric engine</p>
               <svg viewBox="0 0 240 120" className="mt-6 w-full" fill="none">
                 <defs>
                   <linearGradient id="curve-gradient" x1="0" y1="0" x2="240" y2="0">

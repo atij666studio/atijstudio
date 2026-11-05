@@ -7,8 +7,8 @@ import { site } from "@/lib/site";
 // visitor's mail client, so the form works today with zero setup. Swap this
 // handler for a POST to an API route or a form service (Formspree, Resend, …)
 // whenever you want submissions to land without opening an email app.
-export default function ContactForm({ initialMessage = "" }) {
-  const [form, setForm] = useState({ name: "", email: "", message: initialMessage });
+export default function ContactForm() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   function update(field) {
     return (e) => setForm((f) => ({ ...f, [field]: e.target.value }));

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Icon } from "@/components/Icons";
 import { HeroGroup, HeroItem, Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import ScrollCue from "@/components/motion/ScrollCue";
-import { products, site, technology } from "@/lib/site";
+import { asset, products, site, technology } from "@/lib/site";
 
 const flagship = products.find((p) => p.slug === "soulcrusher");
 const otherProducts = products.filter((p) => p.slug !== "soulcrusher");
@@ -97,7 +97,7 @@ export default function Home() {
 
             <Reveal delay={0.1} y={32} className="flex items-center justify-center rounded-2xl border border-border bg-surface p-10">
               <Image
-                src="/soulcrusher/logo.png"
+                src={asset("/soulcrusher/logo.png")}
                 alt="SoulCrusher logomark"
                 width={220}
                 height={220}
@@ -113,7 +113,7 @@ export default function Home() {
         <div className="shell">
           <Reveal className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <span className="eyebrow">In development</span>
+              <span className="eyebrow">Coming soon</span>
               <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight">More from the studio.</h2>
             </div>
             <Link
@@ -127,7 +127,7 @@ export default function Home() {
           <RevealGroup className="mt-12 grid gap-5 sm:grid-cols-3">
             {otherProducts.map((product) => (
               <RevealItem key={product.name} className="card">
-                <span className="tag">In development</span>
+                <span className="tag">Coming soon</span>
                 <h3 className="mt-4 font-display text-lg font-semibold">{product.name}</h3>
                 <p className="mt-2 text-sm text-muted">{product.tagline}</p>
               </RevealItem>

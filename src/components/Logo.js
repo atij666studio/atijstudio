@@ -33,7 +33,7 @@ export default function Logo({ className = "" }) {
     <Link href="/" className={`inline-flex items-center gap-2.5 ${className}`}>
       <Mark />
       <span className="font-display text-lg font-semibold tracking-tight text-foreground">
-        Atiij <span className="text-muted font-normal">Studio</span>
+        ATIJ <span className="text-muted font-normal">STUDIO</span>
       </span>
     </Link>
   );

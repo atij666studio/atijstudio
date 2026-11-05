@@ -5,7 +5,7 @@ import { products, site } from "@/lib/site";
 
 export const metadata = {
   title: "Plugins",
-  description: "Every plugin and product line from Atiij Studio.",
+  description: "Every plugin and product line from ATIJ STUDIO.",
 };
 
 export default function PluginsPage() {
@@ -23,7 +23,7 @@ export default function PluginsPage() {
           </HeroItem>
           <HeroItem>
             <p className="mt-4 max-w-xl text-lg text-muted">
-              One shipped product so far, and several more in active development.
+              SoulCrusher is out now, with more finished plugins coming soon.
             </p>
             <p className="mt-3 text-sm font-medium text-accent-2">{site.distribution}</p>
           </HeroItem>
@@ -41,7 +41,7 @@ export default function PluginsPage() {
                 }`}
               >
                 <div className="flex items-center justify-between gap-3">
-                  {available ? <span className="tag-live">Available now</span> : <span className="tag">In development</span>}
+                  {available ? <span className="tag-live">Available now</span> : <span className="tag">Coming soon</span>}
                   {product.version && <span className="text-xs text-muted">{product.version}</span>}
                 </div>
                 <h2 className="mt-4 font-display text-xl font-semibold">{product.name}</h2>

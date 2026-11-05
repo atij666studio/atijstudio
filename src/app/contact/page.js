@@ -8,11 +8,7 @@ export const metadata = {
   description: `Get in touch with ${site.name}.`,
 };
 
-export default async function ContactPage({ searchParams }) {
-  const params = await searchParams;
-  const subject = params?.subject;
-  const initialMessage = subject === "SoulCrusher" ? "I'd like the SoulCrusher installer, please!" : "";
-
+export default function ContactPage() {
   return (
     <section className="py-20">
       <div className="shell grid gap-12 lg:grid-cols-[1fr_1.1fr]">
@@ -53,7 +49,7 @@ export default async function ContactPage({ searchParams }) {
         </HeroGroup>
 
         <Reveal delay={0.1}>
-          <ContactForm initialMessage={initialMessage} />
+          <ContactForm />
         </Reveal>
       </div>
     </section>
