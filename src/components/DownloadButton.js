@@ -13,32 +13,63 @@ import { Icon } from "@/components/Icons";
 //  - neither, or not "available": a disabled "coming soon" button.
 
 const PLATFORMS = [
-  { key: "Windows", match: /windows|win64|win-?x64|\.exe$|\.msi$/i },
-  { key: "macOS", match: /mac|osx|darwin|\.dmg$|\.pkg$/i },
-  { key: "Linux", match: /linux|appimage|\.deb$|\.rpm$/i },
-  { key: "User manual", match: /\.pdf$/i, docs: true },
+  { key: "Windows", title: "Windows (64-bit)", match: /windows|win64|win-?x64|\.exe$|\.msi$/i },
+  { key: "macOS", title: "macOS (Apple Silicon + Intel)", match: /mac|osx|darwin|\.dmg$|\.pkg$/i },
+  { key: "Linux x86_64", title: "Linux x86_64", match: /^(?=.*linux)(?=.*(x86_64|amd64|x64)).*/i },
+  { key: "Linux ARM64", title: "Linux ARM64 (e.g. Raspberry Pi 5)", match: /^(?=.*linux)(?=.*(arm64|aarch64)).*/i },
+  { key: "User manual", title: "User manual", match: /\.pdf$/i, docs: true },
 ];
 
-// "NeuralStage-v0.2.1-Linux-ARM64-AppImage.zip" -> "ARM64 · AppImage"
+// All-in-one installers (e.g. the ONE KNOB Series Setup.exe / .pkg / Linux
+// archive with install.sh) are shown first; when a group has many single
+// files (one per plug-in) they're folded under "Individual plug-ins".
+const isBundle = (name) => /setup\.exe$|installer\.pkg$|\.pkg$|\.tar\.gz$/i.test(name);
+const FOLD_AFTER = 6;
+
+// "NeuralStage-v0.3.0-Linux-ARM64-AppImage.zip"  -> "AppImage"
+// "AtiNAMatiC-Boost-v1.0.0-Windows-x64.zip"       -> "Boost"
 function describe(name, platform) {
   if (/\.pdf$/i.test(name)) return "User manual (PDF)";
+  if (/\.(exe|pkg)$/i.test(name) && isBundle(name)) return "All plug-ins installer: tick the ones you want";
+  if (/\.tar\.gz$/i.test(name)) return "All plug-ins + install script (asks which to install)";
+  platform = platform.split(" ")[0];
   const parts = name.replace(/\.(zip|exe|dmg|pkg|msi|appimage|tar\.gz|deb|rpm)$/i, "").split("-");
   const words = parts.filter((p) => !/^v?\d+(\.\d+)+$/i.test(p) && p.toLowerCase() !== platform.toLowerCase());
-  const nice = {
-    setup: "Installer",
-    manual: "Manual install",
-    standalone: "Standalone app",
-    appimage: "AppImage",
-    universal: "Universal (Apple Silicon + Intel)",
-    arm64: "ARM64 (e.g. Raspberry Pi 5)",
-    x64: "64-bit",
-    x86_64: "x86_64 (64-bit PC)",
-  };
-  // drop the product name (first word) and map the rest to friendly labels
+  const nice = { setup: "Installer", manual: "Manual install", standalone: "Standalone app", appimage: "AppImage" };
+  const arch = /^(x64|x86_64|amd64|arm64|aarch64|universal)$/i;
+  // drop the product prefix (first word) and the architecture, map the rest to friendly labels
   return words
     .slice(1)
+    .filter((w) => !arch.test(w))
     .map((w) => nice[w.toLowerCase()] ?? w)
     .join(" · ");
+}
+
+function FileList({ files, highlight = false, nested = false }) {
+  return (
+    <ul
+      className={`divide-y divide-border ${nested ? "border-t border-border" : "mt-2 rounded-xl border"} ${
+        highlight ? "border-accent/50 bg-accent/5" : "border-border"
+      }`}
+    >
+      {files.map((f) => (
+        <li key={f.name}>
+          <a
+            href={f.url}
+            className="flex items-center justify-between gap-4 px-4 py-3 text-sm transition-colors hover:bg-surface-2"
+          >
+            <span>
+              <span className="font-medium text-foreground">{f.label || f.name}</span>
+              <span className="block text-xs text-muted">{f.name}</span>
+            </span>
+            <span className="flex shrink-0 items-center gap-2 text-xs text-muted">
+              {formatSize(f.size)} <Icon name="download" className="h-4 w-4 text-accent-2" />
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
 }
 
 function formatSize(bytes) {
@@ -86,6 +117,7 @@ export default function DownloadButton({ product, className = "btn-primary" }) {
       const release = await res.json();
       const groups = PLATFORMS.map((p) => ({
         platform: p.key,
+        title: p.title,
         files: (release.assets ?? [])
           .filter((a) => p.match.test(a.name))
           .map((a) => ({ name: a.name, url: a.browser_download_url, size: a.size, label: describe(a.name, p.key) })),
@@ -113,9 +145,10 @@ export default function DownloadButton({ product, className = "btn-primary" }) {
   }
 
   const mine = guessPlatform();
+  const isMine = (key) => Boolean(mine) && key.startsWith(mine);
   const groups =
     state.status === "ready"
-      ? [...state.groups].sort((a, b) => (b.platform === mine) - (a.platform === mine))
+      ? [...state.groups].sort((a, b) => isMine(b.platform) - isMine(a.platform))
       : [];
 
   return (
@@ -176,32 +209,32 @@ export default function DownloadButton({ product, className = "btn-primary" }) {
               <p className="mt-6 text-sm text-muted">No builds have been published yet. Check back soon.</p>
             )}
 
-            {groups.map((g) => (
-              <div key={g.platform} className="mt-6">
-                <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-muted">
-                  {g.platform}
-                  {g.platform === mine && <span className="tag-live normal-case tracking-normal">Your system</span>}
-                </h3>
-                <ul className="mt-2 divide-y divide-border rounded-xl border border-border">
-                  {g.files.map((f) => (
-                    <li key={f.name}>
-                      <a
-                        href={f.url}
-                        className="flex items-center justify-between gap-4 px-4 py-3 text-sm transition-colors hover:bg-surface-2"
-                      >
-                        <span>
-                          <span className="font-medium text-foreground">{f.label || f.name}</span>
-                          <span className="block text-xs text-muted">{f.name}</span>
-                        </span>
-                        <span className="flex shrink-0 items-center gap-2 text-xs text-muted">
-                          {formatSize(f.size)} <Icon name="download" className="h-4 w-4 text-accent-2" />
-                        </span>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            {groups.map((g) => {
+              const bundles = g.files.filter((f) => isBundle(f.name));
+              const singles = g.files.filter((f) => !isBundle(f.name));
+              const fold = singles.length > FOLD_AFTER;
+              return (
+                <div key={g.platform} className="mt-6">
+                  <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-muted">
+                    {g.title}
+                    {isMine(g.platform) && <span className="tag-live normal-case tracking-normal">Your system</span>}
+                  </h3>
+                  {bundles.length > 0 && <FileList files={bundles} highlight />}
+                  {singles.length > 0 &&
+                    (fold ? (
+                      <details className="mt-2 rounded-xl border border-border">
+                        <summary className="cursor-pointer px-4 py-3 text-sm font-medium text-foreground hover:bg-surface-2">
+                          Individual plug-ins ({singles.length})
+                          <span className="ml-2 text-xs font-normal text-muted">one zip each, every format + manual</span>
+                        </summary>
+                        <FileList files={singles} nested />
+                      </details>
+                    ) : (
+                      <FileList files={singles} />
+                    ))}
+                </div>
+              );
+            })}
           </div>
         </div>
       )}

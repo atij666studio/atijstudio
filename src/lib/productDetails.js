@@ -402,10 +402,13 @@ export const productDetails = {
     // Small plugin windows: show them in an even grid instead of one big first image.
     galleryLayout: "compact",
     specs: [
-      ["Type", "Single-knob effect plugins"],
-      ["Formats", "VST3 · CLAP · AU (macOS) · LV2 (Linux)"],
+      ["Type", "Single-knob effect plug-ins (no standalone apps)"],
+      ["Formats", "VST3 · CLAP · LV2 on every platform · AU (macOS)"],
       ["Platforms", "Windows 10+ x64 · macOS 10.15+ (Universal) · Linux x86_64 · Linux ARM64"],
       ["Includes", "23 plugins: Air, Bloom, Boost, Cab, Choke, Cohere, Dirt, Double, Feel, Gate, HitZone, Hum, Level, Mono, Pick, Pitch, Reach, Room, Sag, Slow, Squash, Strum, Tight"],
+      ["Installers", "Windows Setup.exe and macOS .pkg: tick the plug-ins and formats you want · Linux: install script that asks"],
+      ["Single downloads", "One zip per plug-in per platform, with every format and its manual"],
+      ["License", "Free and open source (GNU GPL v3), source on GitHub"],
     ],
   },
 

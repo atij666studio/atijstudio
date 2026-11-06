@@ -196,12 +196,16 @@ export const products = [
   {
     slug: "one-knob-series",
     name: "AtiNAMatiC — One Knob Series",
-    tagline: "Single-knob effects: Boost, Dirt, Gate, Air, Tight and more",
+    tagline: "23 single-knob plug-ins: Boost, Dirt, Gate, Air, Tight and more",
     description:
       "A line of focused, single-purpose plugins — one knob, one job. Boost, saturation, gating, compression, low-end tightening, room and more, built to shape a tone fast without menu-diving.",
-    tags: ["Effects", "Utility Plugins"],
-    status: "coming-soon",
-    downloadUrl: null, // TODO: direct download link
+    tags: ["Effects", "Utility Plugins", "Open source"],
+    status: "available",
+    version: "v1.0.0",
+    price: "Free and open source",
+    downloadUrl: null,
+    // Download window lists the latest release (all-in-one installers + one zip per plug-in).
+    releaseRepo: "atij666studio/One-Knob-Series",
     image: {
       src: "/screenshots/one-knob-series/hero.webp",
       alt: "Five One Knob plugins side by side: Boost, Dirt, Cab, Cohere and Air",
