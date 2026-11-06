@@ -5,8 +5,8 @@ import { HeroGroup, HeroItem, Reveal, RevealGroup, RevealItem } from "@/componen
 import ScrollCue from "@/components/motion/ScrollCue";
 import { asset, products, site, technology } from "@/lib/site";
 
-const flagship = products.find((p) => p.slug === "soulcrusher");
-const otherProducts = products.filter((p) => p.slug !== "soulcrusher");
+const flagship = products.find((p) => p.featured);
+const otherProducts = products.filter((p) => !p.featured);
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
       <section className="grid-glow relative border-b border-border">
         <HeroGroup className="shell flex flex-col items-start gap-6 py-24 md:py-32">
           <HeroItem>
-            <span className="eyebrow">Neural amp modeling, built from scratch</span>
+            <span className="eyebrow">Free tools, built on Neural Amp Modeler</span>
           </HeroItem>
           <HeroItem>
             <h1 className="max-w-3xl font-display text-4xl font-semibold tracking-tight text-balance sm:text-5xl md:text-6xl">
@@ -71,16 +71,26 @@ export default function Home() {
 
       {/* Flagship product */}
       {flagship && (
-        <section className="border-b border-border py-24">
-          <div className="shell grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <section id="featured" className="scroll-mt-20 border-b border-border py-24">
+          <div className="shell grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
             <Reveal>
-              <span className="tag-live">Available now</span>
+              {flagship.status === "available" ? (
+                <span className="tag-live">Available now</span>
+              ) : (
+                <span className="tag">Coming soon</span>
+              )}
               <h2 className="mt-5 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-                {flagship.name} <span className="text-muted font-normal">{flagship.version}</span>
+                {flagship.name}{" "}
+                {flagship.status === "available" && flagship.version && (
+                  <span className="text-muted font-normal">{flagship.version}</span>
+                )}
               </h2>
               <p className="mt-3 text-lg text-muted">{flagship.tagline}</p>
               {flagship.price && <p className="mt-2 text-sm font-medium text-accent-2">{flagship.price}</p>}
               <p className="mt-4 max-w-lg text-sm text-muted">{flagship.description}</p>
+              {flagship.status !== "available" && flagship.statusNote && (
+                <p className="mt-3 max-w-lg text-sm text-accent-2">{flagship.statusNote}</p>
+              )}
               <div className="mt-5 flex flex-wrap gap-2">
                 {flagship.tags.map((tag) => (
                   <span key={tag} className="tag">
@@ -89,21 +99,35 @@ export default function Home() {
                 ))}
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
-                <Link href="/plugins/soulcrusher" className="btn-primary">
-                  Get SoulCrusher <Icon name="arrow-right" className="h-4 w-4" />
-                </Link>
+                {flagship.status === "available" && flagship.downloadUrl ? (
+                  <a href={flagship.downloadUrl} target="_blank" rel="noreferrer" className="btn-primary">
+                    Download {flagship.name} <Icon name="download" className="h-4 w-4" />
+                  </a>
+                ) : (
+                  <span className="btn-primary cursor-not-allowed opacity-50" aria-disabled="true">
+                    {flagship.status === "available" ? "Download — coming soon" : "Coming soon"}{" "}
+                    <Icon name="download" className="h-4 w-4" />
+                  </span>
+                )}
+                {flagship.slug && (
+                  <Link href={`/plugins/${flagship.slug}`} className="btn-secondary">
+                    Learn more <Icon name="arrow-right" className="h-4 w-4" />
+                  </Link>
+                )}
               </div>
             </Reveal>
 
-            <Reveal delay={0.1} y={32} className="flex items-center justify-center rounded-2xl border border-border bg-surface p-10">
-              <Image
-                src={asset("/soulcrusher/logo.png")}
-                alt="SoulCrusher logomark"
-                width={220}
-                height={220}
-                className="h-auto w-40 sm:w-52"
-              />
-            </Reveal>
+            {flagship.image && (
+              <Reveal delay={0.1} y={32} className="overflow-hidden rounded-2xl border border-border bg-surface shadow-2xl">
+                <Image
+                  src={asset(flagship.image.src)}
+                  alt={flagship.image.alt}
+                  width={flagship.image.width}
+                  height={flagship.image.height}
+                  className="h-auto w-full"
+                />
+              </Reveal>
+            )}
           </div>
         </section>
       )}
@@ -113,7 +137,7 @@ export default function Home() {
         <div className="shell">
           <Reveal className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <span className="eyebrow">Coming soon</span>
+              <span className="eyebrow">Plugins</span>
               <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight">More from the studio.</h2>
             </div>
             <Link
@@ -126,10 +150,30 @@ export default function Home() {
 
           <RevealGroup className="mt-12 grid gap-5 sm:grid-cols-3">
             {otherProducts.map((product) => (
-              <RevealItem key={product.name} className="card">
-                <span className="tag">Coming soon</span>
+              <RevealItem key={product.name}>
+                <Link
+                  href={`/plugins/${product.slug}`}
+                  className="card block h-full transition-all duration-300 hover:-translate-y-1 hover:border-accent/50"
+                >
+                {product.image && (
+                  <div className="-mx-1 -mt-1 mb-5 aspect-[16/10] overflow-hidden rounded-lg border border-border bg-surface-2">
+                    <Image
+                      src={asset(product.image.src)}
+                      alt={product.image.alt}
+                      width={product.image.width}
+                      height={product.image.height}
+                      className="h-full w-full object-cover object-top"
+                    />
+                  </div>
+                )}
+                {product.status === "available" ? (
+                  <span className="tag-live">Available now</span>
+                ) : (
+                  <span className="tag">Coming soon</span>
+                )}
                 <h3 className="mt-4 font-display text-lg font-semibold">{product.name}</h3>
                 <p className="mt-2 text-sm text-muted">{product.tagline}</p>
+                </Link>
               </RevealItem>
             ))}
           </RevealGroup>

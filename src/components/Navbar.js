@@ -5,7 +5,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 import { Icon } from "./Icons";
-import { nav } from "@/lib/site";
+import { nav, products } from "@/lib/site";
+
+// Navbar button points at the featured product (see `featured` in src/lib/site.js).
+const featured = products.find((p) => p.featured);
+const featuredHref = featured?.downloadUrl ?? (featured?.slug ? `/plugins/${featured.slug}` : "/#featured");
+const featuredLabel = featured ? `Get ${featured.name}` : null;
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -49,8 +54,8 @@ export default function Navbar() {
           })}
         </nav>
 
-        <Link href="/plugins/soulcrusher" className="btn-primary hidden md:inline-flex">
-          Get SoulCrusher
+        <Link href={featuredHref} className="btn-primary hidden md:inline-flex">
+          {featuredLabel}
         </Link>
 
         <button
@@ -78,11 +83,11 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="/plugins/soulcrusher"
+              href={featuredHref}
               onClick={() => setOpen(false)}
               className="btn-primary mt-2 justify-center"
             >
-              Get SoulCrusher
+              {featuredLabel}
             </Link>
           </nav>
         </div>

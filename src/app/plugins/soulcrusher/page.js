@@ -3,9 +3,12 @@ import Link from "next/link";
 import { Icon } from "@/components/Icons";
 import { ParallaxLayer } from "@/components/motion/Parallax";
 import { HeroGroup, HeroItem, Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
+import { GallerySection, Specs } from "@/components/ProductSections";
+import { productDetails } from "@/lib/productDetails";
 import { asset, products, site } from "@/lib/site";
 
 const product = products.find((p) => p.slug === "soulcrusher");
+const available = product?.status === "available" && Boolean(product?.downloadUrl);
 
 export const metadata = {
   title: "SoulCrusher",
@@ -67,7 +70,11 @@ export default function SoulCrusherPage() {
             />
           </HeroItem>
           <HeroItem>
-            <span className="tag-live">Available now — {product?.version}</span>
+            {available ? (
+              <span className="tag-live">Available now — {product?.version}</span>
+            ) : (
+              <span className="tag">Coming soon</span>
+            )}
           </HeroItem>
           <HeroItem>
             <p className="max-w-xl text-lg text-muted">{product?.description}</p>
@@ -77,13 +84,13 @@ export default function SoulCrusherPage() {
           </HeroItem>
 
           <HeroItem className="mt-2 flex flex-wrap items-center gap-3">
-            {product?.downloadUrl ? (
-              <a href={product.downloadUrl} download className="btn-primary">
+            {available ? (
+              <a href={product.downloadUrl} target="_blank" rel="noreferrer" className="btn-primary">
                 Download for {product.platform?.split(" ")[0] ?? "Windows"} <Icon name="download" className="h-4 w-4" />
               </a>
             ) : (
               <span className="btn-primary cursor-not-allowed opacity-50" aria-disabled="true">
-                Download — link going up soon <Icon name="download" className="h-4 w-4" />
+                Download — coming soon <Icon name="download" className="h-4 w-4" />
               </span>
             )}
             <Link href="/technology" className="btn-secondary">
@@ -104,12 +111,9 @@ export default function SoulCrusherPage() {
             </HeroItem>
           )}
 
-          {!product?.downloadUrl && (
+          {!available && product?.statusNote && (
             <HeroItem>
-              <p className="text-xs text-muted">
-                The one-click download for this page is still being wired up — no forms, no sign-up, just a straight
-                link once it&apos;s live.
-              </p>
+              <p className="text-sm text-muted">{product.statusNote}</p>
             </HeroItem>
           )}
         </HeroGroup>
@@ -139,14 +143,12 @@ export default function SoulCrusherPage() {
         </div>
       </section>
 
-      {/* Requirements + credits */}
+      <GallerySection details={productDetails.soulcrusher} name="SoulCrusher" />
+      <Specs details={productDetails.soulcrusher} />
+
+      {/* Credits */}
       <section className="py-24">
         <RevealGroup className="shell grid gap-6 sm:grid-cols-2">
-          <RevealItem className="card">
-            <p className="text-xs font-medium uppercase tracking-wide text-muted">System requirements</p>
-            <p className="mt-3 text-sm text-foreground">{product?.platform}</p>
-            <p className="mt-1 text-sm text-muted">VST3 &amp; Standalone</p>
-          </RevealItem>
           <RevealItem className="card">
             <p className="text-xs font-medium uppercase tracking-wide text-muted">Credits</p>
             <p className="mt-3 text-sm text-foreground">Created by Atij</p>

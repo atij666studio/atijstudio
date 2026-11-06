@@ -1,7 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/Icons";
 import { HeroGroup, HeroItem, RevealGroup, RevealItem } from "@/components/motion/Reveal";
-import { products, site } from "@/lib/site";
+import { asset, products, site } from "@/lib/site";
 
 export const metadata = {
   title: "Plugins",
@@ -23,7 +24,7 @@ export default function PluginsPage() {
           </HeroItem>
           <HeroItem>
             <p className="mt-4 max-w-xl text-lg text-muted">
-              SoulCrusher is out now, with more finished plugins coming soon.
+              Finished plugins, all free — no account, no sign-up.
             </p>
             <p className="mt-3 text-sm font-medium text-accent-2">{site.distribution}</p>
           </HeroItem>
@@ -40,9 +41,20 @@ export default function PluginsPage() {
                   available ? "border-accent/30" : ""
                 }`}
               >
+                {product.image && (
+                  <div className="-mx-1 -mt-1 mb-5 aspect-[16/10] overflow-hidden rounded-lg border border-border bg-surface-2">
+                    <Image
+                      src={asset(product.image.src)}
+                      alt={product.image.alt}
+                      width={product.image.width}
+                      height={product.image.height}
+                      className="h-full w-full object-cover object-top"
+                    />
+                  </div>
+                )}
                 <div className="flex items-center justify-between gap-3">
                   {available ? <span className="tag-live">Available now</span> : <span className="tag">Coming soon</span>}
-                  {product.version && <span className="text-xs text-muted">{product.version}</span>}
+                  {available && product.version && <span className="text-xs text-muted">{product.version}</span>}
                 </div>
                 <h2 className="mt-4 font-display text-xl font-semibold">{product.name}</h2>
                 <p className="mt-2 text-sm text-muted">{product.tagline}</p>
@@ -57,7 +69,7 @@ export default function PluginsPage() {
                 </div>
                 {product.slug && (
                   <span className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-accent-2">
-                    View plugin <Icon name="arrow-right" className="h-4 w-4" />
+                    Learn more <Icon name="arrow-right" className="h-4 w-4" />
                   </span>
                 )}
               </div>

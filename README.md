@@ -38,7 +38,9 @@ Things still worth doing before this goes live:
   bloats the git repo over time), or upload it as a GitHub Release asset /
   object storage (S3, Cloudflare R2, Backblaze) and link to that URL instead.
 - Edit the product cards in `site.js` (`products` array); set `status` to "available" and add a `downloadUrl` when a download goes live
-  (Gumroad link). Give it a `slug` once it has its own page.
+  (a direct link, e.g. a GitHub Release file, so visitors download with no
+  sign-up or email). Page content (overview, gallery, specs) is in
+  `src/lib/productDetails.js`; screenshots go in `public/screenshots/<slug>/`.
 - Fill in the real About page story in [src/app/about/page.js](src/app/about/page.js).
 - Set `donateUrl` in `site.js` once you've picked a donation platform (Ko-fi,
   Buy Me a Coffee, PayPal.me, etc.) — it's `null` right now, which hides the

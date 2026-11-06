@@ -10,6 +10,18 @@ export default function Footer() {
         <div className="max-w-xs">
           <Logo />
           <p className="mt-3 text-sm text-muted">{site.tagline}</p>
+          <p className="mt-3 text-xs text-muted">
+            Built on{" "}
+            <a
+              href="https://github.com/sdatkinson/neural-amp-modeler"
+              target="_blank"
+              rel="noreferrer"
+              className="underline decoration-border underline-offset-4 hover:text-foreground"
+            >
+              Neural Amp Modeler
+            </a>{" "}
+            by Steven Atkinson.
+          </p>
         </div>
 
         <div className="flex flex-wrap gap-x-12 gap-y-6">
