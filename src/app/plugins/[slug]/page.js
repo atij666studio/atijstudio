@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import DownloadButton from "@/components/DownloadButton";
 import { Icon } from "@/components/Icons";
 import { HeroGroup, HeroItem, Reveal } from "@/components/motion/Reveal";
-import { Credits, GallerySection, Highlights, Overview, Specs } from "@/components/ProductSections";
+import { Credits, GallerySection, Highlights, Install, Overview, Specs } from "@/components/ProductSections";
 import { productDetails } from "@/lib/productDetails";
 import { asset, products, site } from "@/lib/site";
 
@@ -58,10 +58,17 @@ export default async function ProductPage({ params }) {
             <p className="max-w-2xl text-lg text-muted sm:text-xl">{product.tagline}</p>
           </HeroItem>
           <HeroItem>
-            <p className="text-sm font-medium text-accent-2">Free · no account or sign-up required</p>
+            <p className="text-sm font-medium text-accent-2">
+              Free · no account or sign-up required{product.sourceUrl ? " · open source" : ""}
+            </p>
           </HeroItem>
           <HeroItem className="mt-2 flex flex-wrap items-center justify-center gap-3">
             <DownloadButton product={product} />
+            {product.sourceUrl && (
+              <a href={product.sourceUrl} target="_blank" rel="noreferrer" className="btn-secondary">
+                <Icon name="github" className="h-4 w-4" /> Source code
+              </a>
+            )}
             <Link href="/plugins" className="btn-secondary">
               All plugins
             </Link>
@@ -97,6 +104,7 @@ export default async function ProductPage({ params }) {
         name={product.name}
       />
       <Specs details={details} />
+      <Install details={details} />
       <Credits details={details} />
 
       {/* Closing call to action */}
@@ -112,7 +120,14 @@ export default async function ProductPage({ params }) {
           </p>
           <div className="flex flex-wrap gap-3">
             {available ? (
-              <DownloadButton product={product} />
+              <>
+                <DownloadButton product={product} />
+                {product.sourceUrl && (
+                  <a href={product.sourceUrl} target="_blank" rel="noreferrer" className="btn-secondary">
+                    <Icon name="github" className="h-4 w-4" /> Source code
+                  </a>
+                )}
+              </>
             ) : (
               <Link href="/contact" className="btn-primary">
                 Get in touch <Icon name="arrow-right" className="h-4 w-4" />

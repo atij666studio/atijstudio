@@ -106,6 +106,57 @@ export function Credits({ details }) {
   );
 }
 
+// Inline `code` in install steps.
+function withCode(text) {
+  return text.split("`").map((part, i) =>
+    i % 2 ? (
+      <code key={i} className="rounded bg-surface-2 px-1.5 py-0.5 text-xs text-foreground">
+        {part}
+      </code>
+    ) : (
+      part
+    )
+  );
+}
+
+export function Install({ details }) {
+  const install = details?.install;
+  if (!install) return null;
+  return (
+    <section id="install" className="scroll-mt-20 border-b border-border py-24">
+      <div className="shell">
+        <Reveal className="max-w-2xl">
+          <span className="eyebrow">Installing</span>
+          <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight">Installing, step by step.</h2>
+          <p className="mt-4 text-muted">
+            These are free builds from an independent developer, so they aren&apos;t code-signed by Microsoft or
+            Apple. The first time you open them, your computer may warn you. That&apos;s expected, and the steps
+            below show what to click.
+          </p>
+        </Reveal>
+        <RevealGroup className="mt-12 grid gap-5 lg:grid-cols-3">
+          {install.platforms.map((p) => (
+            <RevealItem key={p.name} className="card">
+              <h3 className="font-display text-xl font-semibold">{p.name}</h3>
+              <ol className="mt-4 list-decimal space-y-3 pl-5 text-sm text-muted marker:text-accent-2">
+                {p.steps.map((s) => (
+                  <li key={s}>{withCode(s)}</li>
+                ))}
+              </ol>
+              {p.tip && <p className="mt-4 border-t border-border pt-4 text-xs text-muted">{withCode(p.tip)}</p>}
+            </RevealItem>
+          ))}
+        </RevealGroup>
+        {install.after && (
+          <Reveal>
+            <p className="mt-8 max-w-2xl text-sm text-muted">{withCode(install.after)}</p>
+          </Reveal>
+        )}
+      </div>
+    </section>
+  );
+}
+
 export function Specs({ details }) {
   if (!details?.specs?.length) return null;
   return (

@@ -72,6 +72,38 @@ export const productDetails = {
       shot("neural-stage", "compact", 1024, 600, "Compact layout for small touchscreens"),
       shot("neural-stage", "model-browser", 862, 628, "Model browser with your library and TONE3000"),
     ],
+    install: {
+      platforms: [
+        {
+          name: "Windows 10/11",
+          steps: [
+            "Download the Installer, unzip it and run `NeuralStage-0.3.0-Setup.exe`.",
+            "If you see \"Windows protected your PC\", click More info, then Run anyway.",
+            "Follow the installer, then rescan plug-ins in your DAW to use the VST3 or CLAP version.",
+          ],
+          tip: "No installer? The Manual install zip has `NeuralStage.exe`, `NeuralStage.vst3` (copy to `C:\\Program Files\\Common Files\\VST3`) and `NeuralStage.clap` (copy to `C:\\Program Files\\Common Files\\CLAP`).",
+        },
+        {
+          name: "macOS 11+",
+          steps: [
+            "Download the Standalone or VST3 zip and double-click it to unzip.",
+            "Drag `NeuralStage.app` to Applications, or copy `NeuralStage.vst3` to `/Library/Audio/Plug-Ins/VST3`.",
+            "First launch: right-click the app, choose Open, then Open again. After that it opens normally.",
+          ],
+          tip: "If macOS says the app is damaged or still won't open, run `xattr -cr /Applications/NeuralStage.app` in Terminal (or the same on the .vst3).",
+        },
+        {
+          name: "Linux (x86_64 / ARM64)",
+          steps: [
+            "Download the AppImage zip for your machine and unzip it.",
+            "Make it runnable: `chmod +x NeuralStage-*.AppImage`.",
+            "Double-click it or run `./NeuralStage-*.AppImage`.",
+          ],
+          tip: "For your DAW, copy `NeuralStage.vst3` from the VST3 zip to `~/.vst3`. Raspberry Pi 5: use the ARM64 files.",
+        },
+      ],
+      after: "The full guide is in the user manual (PDF), also in the download window.",
+    },
     specs: [
       ["Type", "Live rig host and amp modeler"],
       ["Formats", "Standalone · VST3 · CLAP"],
@@ -401,6 +433,40 @@ export const productDetails = {
     ],
     // Small plugin windows: show them in an even grid instead of one big first image.
     galleryLayout: "compact",
+    install: {
+      platforms: [
+        {
+          name: "Windows 10/11",
+          steps: [
+            "Download the All plug-ins installer and run `ONE-KNOB-Series-v1.0.0-Windows-x64-Setup.exe`.",
+            "If you see \"Windows protected your PC\", click More info, then Run anyway.",
+            "Tick the plug-ins and formats you want (VST3, CLAP, LV2), untick the rest, and finish.",
+            "Rescan plug-ins in your DAW.",
+          ],
+          tip: "Just one plug-in? Unzip it and copy the `.vst3`, `.clap` and `.lv2` into `C:\\Program Files\\Common Files\\` (folders `VST3`, `CLAP`, `LV2`).",
+        },
+        {
+          name: "macOS 10.15+",
+          steps: [
+            "Download the All plug-ins installer (`.pkg`).",
+            "If macOS won't open it, right-click it and choose Open (or go to System Settings › Privacy & Security and click Open Anyway).",
+            "Click Customize and tick the plug-ins and formats you want (VST3, AU, CLAP, LV2).",
+            "Rescan plug-ins in your DAW. Logic and GarageBand use the AU versions.",
+          ],
+          tip: "Just one plug-in? Copy its files into `/Library/Audio/Plug-Ins/` (`VST3`, `Components`, `CLAP`, `LV2`), then run `xattr -cr` on each, e.g. `xattr -cr /Library/Audio/Plug-Ins/VST3/AtiNAMatiC-Boost.vst3`.",
+        },
+        {
+          name: "Linux (x86_64 / ARM64)",
+          steps: [
+            "Download the All plug-ins archive for your machine and extract it.",
+            "In that folder, run `./install.sh`. It asks which plug-ins and formats to install.",
+            "Rescan plug-ins in your DAW.",
+          ],
+          tip: "`./install.sh --all` installs everything, `--system` installs for all users, `--uninstall` removes them. Single zips go into `~/.vst3`, `~/.clap` and `~/.lv2`.",
+        },
+      ],
+      after: "Every plug-in's manual is inside its zip, and the full ONE KNOB Series manual (PDF) is in the download window.",
+    },
     specs: [
       ["Type", "Single-knob effect plug-ins (no standalone apps)"],
       ["Formats", "VST3 · CLAP · LV2 on every platform · AU (macOS)"],

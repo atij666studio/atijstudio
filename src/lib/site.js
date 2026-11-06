@@ -206,6 +206,8 @@ export const products = [
     downloadUrl: null,
     // Download window lists the latest release (all-in-one installers + one zip per plug-in).
     releaseRepo: "atij666studio/One-Knob-Series",
+    // Open source: "Source code" button -> latest release (source zip is listed there).
+    sourceUrl: "https://github.com/atij666studio/One-Knob-Series/releases/latest",
     image: {
       src: "/screenshots/one-knob-series/hero.webp",
       alt: "Five One Knob plugins side by side: Boost, Dirt, Cab, Cohere and Air",
