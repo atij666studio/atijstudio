@@ -16,10 +16,12 @@ const PLATFORMS = [
   { key: "Windows", match: /windows|win64|win-?x64|\.exe$|\.msi$/i },
   { key: "macOS", match: /mac|osx|darwin|\.dmg$|\.pkg$/i },
   { key: "Linux", match: /linux|appimage|\.deb$|\.rpm$/i },
+  { key: "User manual", match: /\.pdf$/i, docs: true },
 ];
 
 // "NeuralStage-v0.2.1-Linux-ARM64-AppImage.zip" -> "ARM64 · AppImage"
 function describe(name, platform) {
+  if (/\.pdf$/i.test(name)) return "User manual (PDF)";
   const parts = name.replace(/\.(zip|exe|dmg|pkg|msi|appimage|tar\.gz|deb|rpm)$/i, "").split("-");
   const words = parts.filter((p) => !/^v?\d+(\.\d+)+$/i.test(p) && p.toLowerCase() !== platform.toLowerCase());
   const nice = {
