@@ -5,12 +5,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "./Logo";
 import { Icon } from "./Icons";
-import { nav, products } from "@/lib/site";
-
-// Navbar button points at the featured product (see `featured` in src/lib/site.js).
-const featured = products.find((p) => p.featured);
-const featuredHref = featured?.slug ? `/plugins/${featured.slug}` : "/#featured";
-const featuredLabel = featured ? `Get ${featured.name}` : null;
+import SupportButton from "./SupportButton";
+import { nav } from "@/lib/site";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -54,9 +50,9 @@ export default function Navbar() {
           })}
         </nav>
 
-        <Link href={featuredHref} className="btn-primary hidden md:inline-flex">
-          {featuredLabel}
-        </Link>
+        <div className="hidden md:block">
+          <SupportButton />
+        </div>
 
         <button
           type="button"
@@ -82,13 +78,9 @@ export default function Navbar() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href={featuredHref}
-              onClick={() => setOpen(false)}
-              className="btn-primary mt-2 justify-center"
-            >
-              {featuredLabel}
-            </Link>
+            <div className="mt-2">
+              <SupportButton block />
+            </div>
           </nav>
         </div>
       )}

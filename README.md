@@ -42,9 +42,8 @@ Things still worth doing before this goes live:
   sign-up or email). Page content (overview, gallery, specs) is in
   `src/lib/productDetails.js`; screenshots go in `public/screenshots/<slug>/`.
 - Fill in the real About page story in [src/app/about/page.js](src/app/about/page.js).
-- Set `donateUrl` in `site.js` once you've picked a donation platform (Ko-fi,
-  Buy Me a Coffee, PayPal.me, etc.) — it's `null` right now, which hides the
-  donate link everywhere it would otherwise appear.
+- Support links (PayPal, Buy Me a Coffee, Gumroad) for the "Show your support" menu are in
+  `site.support` in `site.js`; entries without a `url` show as "coming soon".
 - The contact form currently opens the visitor's email client with a
   pre-filled message (see [src/components/ContactForm.js](src/components/ContactForm.js)).
   That works with zero setup, but if you'd rather have submissions land

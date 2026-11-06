@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Icon } from "@/components/Icons";
 import { HeroGroup, HeroItem, Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
+import SupportButton from "@/components/SupportButton";
 import { credits, site, values } from "@/lib/site";
 
 export const metadata = {
@@ -24,17 +25,14 @@ export default function AboutPage() {
           </HeroItem>
           <HeroItem className="mt-8 flex max-w-2xl flex-col gap-5 text-lg text-muted">
             <p>
-              {site.name} is a one-man creative venture born from a lifelong passion for guitars and technology.
-            </p>
-            <p>
-              I&apos;ve been playing guitar since the age of nine, and that passion has grown into an obsession with
-              guitar gear, amp modeling, audio software, and plugin development.
+              {site.name} is a one-man creative venture born from a lifelong passion for guitars and technology, and
+              that passion has grown into an obsession with guitar gear, amp modeling, audio software, and plugin
+              development.
             </p>
             <p>
               Everything here starts with an idea and is built in my spare time, alongside a full-time job. With a lot
               of curiosity, experimentation, and a little help from AI, those ideas gradually become reality.
             </p>
-            <p className="text-foreground">Some call it vibe coding. I call it making things happen.</p>
           </HeroItem>
         </HeroGroup>
       </section>
@@ -81,6 +79,20 @@ export default function AboutPage() {
             </p>
           </Reveal>
         </div>
+      </section>
+
+      {/* Support */}
+      <section className="border-b border-border py-20">
+        <Reveal className="shell flex flex-col items-start gap-5">
+          <span className="eyebrow">Support</span>
+          <h2 className="max-w-xl font-display text-3xl font-semibold tracking-tight">Like what I do?</h2>
+          <p className="max-w-xl text-lg text-muted">
+            Everything here is free and always will be. If my tools help your music and you&apos;d like to support me,
+            hit <span className="text-foreground">Show your support</span>, here or at the top of any page. Every tip
+            goes back into building more.
+          </p>
+          <SupportButton align="left" />
+        </Reveal>
       </section>
 
       {/* Values */}

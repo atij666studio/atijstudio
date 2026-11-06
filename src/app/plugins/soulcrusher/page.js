@@ -98,18 +98,6 @@ export default function SoulCrusherPage() {
             </Link>
           </HeroItem>
 
-          {site.donateUrl && (
-            <HeroItem>
-              <a
-                href={site.donateUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="text-sm text-muted underline decoration-border underline-offset-4 hover:text-accent-2"
-              >
-                Enjoying it? Support the studio with a donation
-              </a>
-            </HeroItem>
-          )}
 
           {!available && product?.statusNote && (
             <HeroItem>

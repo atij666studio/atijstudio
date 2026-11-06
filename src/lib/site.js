@@ -19,7 +19,13 @@ export const site = {
   // account or sign-up required — just click download and install. This
   // drives the copy on the plugins pages, so keep it accurate.
   distribution: "Free to download. No account, no sign-up — just click and install.",
-  donateUrl: null, // TODO: e.g. a Ko-fi / Buy Me a Coffee / PayPal.me link, once you pick one
+  // "Show your support" menu (navbar + About page). Paste each link in;
+  // entries without a link show as "coming soon".
+  support: [
+    { name: "PayPal", note: "Send a one-off tip", url: "https://paypal.me/atijstudio" },
+    { name: "Buy Me a Coffee", note: "Buy me a coffee", url: "https://buymeacoffee.com/atijstudio" },
+    { name: "Gumroad", note: "Pay what you want", url: "https://atijstudio.gumroad.com/" },
+  ],
 };
 
 // Path to a file in /public, with the site's base path in front
