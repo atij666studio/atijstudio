@@ -150,10 +150,45 @@ export const productDetails = {
     gallery: [
       shot("atinamatic-tone", "main", 1402, 816, "Split signal path on the effect grid, with the Thunder Stack amp open"),
     ],
+    install: {
+      platforms: [
+        {
+          name: "Windows 10/11",
+          steps: [
+            "Download the Installer and run `AtiNAMatiC-Tone-v1.2.5-Windows-x64-Setup.exe`.",
+            "If you see \"Windows protected your PC\", click More info, then Run anyway.",
+            "Tick the plug-in formats you want (VST3, CLAP, LV2) and finish. The app is always installed.",
+            "Rescan plug-ins in your DAW.",
+          ],
+          tip: "The installer includes the AI stem splitter for the looper, the built-in captures and IRs, and the Microsoft Visual C++ runtime if it's missing.",
+        },
+        {
+          name: "macOS",
+          steps: [
+            "Download the Installer (`.pkg`).",
+            "If macOS won't open it, right-click it and choose Open (or go to System Settings › Privacy & Security and click Open Anyway).",
+            "Click Customize and tick what you want: the app, VST3, AU, CLAP, LV2.",
+            "Rescan plug-ins in your DAW. Logic and GarageBand use the AU version.",
+          ],
+          tip: "The built-in captures and IRs install to `/Library/Application Support/AtiNAMatiC Tone`, where the app and plug-ins find them.",
+        },
+        {
+          name: "Linux (x86_64 / ARM64)",
+          steps: [
+            "Download the archive for your machine and extract it.",
+            "In that folder, run `./install.sh`. It installs the app and asks which plug-in formats you want.",
+            "Start it with `atinamatic-tone` or from your applications menu, and rescan plug-ins in your DAW.",
+          ],
+          tip: "`./install.sh --all` installs everything, `--system` installs for all users, `--uninstall` removes it. Raspberry Pi 5: use the ARM64 archive.",
+        },
+      ],
+      after: "The full user manual (PDF) is in the download window and is installed with the app.",
+    },
     specs: [
       ["Type", "Amp simulator and multi-effects"],
-      ["Formats", "VST3 · CLAP · LV2 · AU · Standalone"],
-      ["Platforms", "Windows · macOS · Linux"],
+      ["Formats", "Standalone · VST3 · CLAP · LV2 · AU (macOS)"],
+      ["Platforms", "Windows 10/11 x64 · macOS (Universal) · Linux x86_64 · Linux ARM64"],
+      ["Stem splitter", "AI stem splitting in the looper (Windows)"],
       ["Amp models", "NAM .nam captures, with dual A1/A2 stacking"],
       ["Effects", "40+ DSP blocks on a 32-slot grid (4 rows × 8 slots)"],
       ["Cabinets", "Mono and stereo WAV impulse responses"],

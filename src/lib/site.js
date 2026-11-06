@@ -104,8 +104,12 @@ export const products = [
     description:
       "Load any .nam capture with dual A1/A2 model stacking, then build your rig on a 32-slot effect grid with 40+ DSP blocks — amps, cabs, drives, modulation, delays, reverbs and EQs — plus a looper, tuner, MIDI learn and 64 factory presets.",
     tags: ["Amp Sim", "Multi-FX", "NAM"],
-    status: "coming-soon",
-    downloadUrl: null, // TODO: direct download link
+    status: "available",
+    version: "v1.2.5",
+    price: "Free",
+    downloadUrl: null,
+    // Code repo is private; installers are published in this public repo.
+    releaseRepo: "atij666studio/AtiNAMatiC-Tone-Downloads",
     image: {
       src: "/screenshots/atinamatic-tone/main.webp",
       alt: "AtiNAMatiC Tone with a split signal path on the effect grid and the Thunder Stack amp open",

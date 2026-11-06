@@ -30,8 +30,8 @@ const FOLD_AFTER = 6;
 // "AtiNAMatiC-Boost-v1.0.0-Windows-x64.zip"       -> "Boost"
 function describe(name, platform) {
   if (/\.pdf$/i.test(name)) return "User manual (PDF)";
-  if (/\.(exe|pkg)$/i.test(name) && isBundle(name)) return "All plug-ins installer: tick the ones you want";
-  if (/\.tar\.gz$/i.test(name)) return "All plug-ins + install script (asks which to install)";
+  if (/\.(exe|pkg)$/i.test(name) && isBundle(name)) return "Installer: tick what you want to install";
+  if (/\.tar\.gz$/i.test(name)) return "Everything + install script (asks what to install)";
   platform = platform.split(" ")[0];
   const parts = name.replace(/\.(zip|exe|dmg|pkg|msi|appimage|tar\.gz|deb|rpm)$/i, "").split("-");
   const words = parts.filter((p) => !/^v?\d+(\.\d+)+$/i.test(p) && p.toLowerCase() !== platform.toLowerCase());
