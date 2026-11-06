@@ -43,8 +43,9 @@ export const nav = [
 // `featured: true` puts a product in the big home-page section and the navbar button.
 // `image` is a screenshot in /public (cards, featured section, top of the product page).
 // Each product's page content (overview, gallery, specs) is in ./productDetails.js.
-// To launch a product: paste a direct download link into `downloadUrl` (e.g. a GitHub
-// Release file, so there's no sign-up or email step) and change
+// To launch a product: set `releaseRepo` ("owner/repo") so the download button lists
+// the latest GitHub Release's files, or paste a single direct link into `downloadUrl`;
+// either way there's no sign-up or email step. Then change
 // `status` to "available".
 export const products = [
   {
@@ -56,7 +57,9 @@ export const products = [
     tags: ["Plugin Host", "NAM Blending", "Live Rig"],
     status: "available",
     price: "Free",
-    downloadUrl: null, // TODO: direct download link (button shows "coming soon" until set)
+    downloadUrl: null,
+    // Download button lists every file in this repo's latest GitHub Release.
+    releaseRepo: "atij666studio/NeuralStage-Downloads", // public, installers only (code repo is private)
     // Featured on the home page and in the navbar button. Only one product should have this.
     featured: true,
     image: {

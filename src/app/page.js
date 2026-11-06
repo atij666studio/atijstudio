@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import DownloadButton from "@/components/DownloadButton";
 import { Icon } from "@/components/Icons";
 import { HeroGroup, HeroItem, Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import ScrollCue from "@/components/motion/ScrollCue";
@@ -99,16 +100,7 @@ export default function Home() {
                 ))}
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
-                {flagship.status === "available" && flagship.downloadUrl ? (
-                  <a href={flagship.downloadUrl} target="_blank" rel="noreferrer" className="btn-primary">
-                    Download {flagship.name} <Icon name="download" className="h-4 w-4" />
-                  </a>
-                ) : (
-                  <span className="btn-primary cursor-not-allowed opacity-50" aria-disabled="true">
-                    {flagship.status === "available" ? "Download — coming soon" : "Coming soon"}{" "}
-                    <Icon name="download" className="h-4 w-4" />
-                  </span>
-                )}
+                <DownloadButton product={flagship} />
                 {flagship.slug && (
                   <Link href={`/plugins/${flagship.slug}`} className="btn-secondary">
                     Learn more <Icon name="arrow-right" className="h-4 w-4" />

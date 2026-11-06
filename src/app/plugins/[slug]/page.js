@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import DownloadButton from "@/components/DownloadButton";
 import { Icon } from "@/components/Icons";
 import { HeroGroup, HeroItem, Reveal } from "@/components/motion/Reveal";
 import { Credits, GallerySection, Highlights, Overview, Specs } from "@/components/ProductSections";
@@ -60,15 +61,7 @@ export default async function ProductPage({ params }) {
             <p className="text-sm font-medium text-accent-2">Free · no account or sign-up required</p>
           </HeroItem>
           <HeroItem className="mt-2 flex flex-wrap items-center justify-center gap-3">
-            {available && product.downloadUrl ? (
-              <a href={product.downloadUrl} target="_blank" rel="noreferrer" className="btn-primary">
-                Download {product.name} <Icon name="download" className="h-4 w-4" />
-              </a>
-            ) : (
-              <span className="btn-primary cursor-not-allowed opacity-50" aria-disabled="true">
-                {available ? "Download — coming soon" : "Coming soon"} <Icon name="download" className="h-4 w-4" />
-              </span>
-            )}
+            <DownloadButton product={product} />
             <Link href="/plugins" className="btn-secondary">
               All plugins
             </Link>
@@ -118,14 +111,8 @@ export default async function ProductPage({ params }) {
               : "It's free when it lands. Get in touch if you'd like to hear when it's out."}
           </p>
           <div className="flex flex-wrap gap-3">
-            {available && product.downloadUrl ? (
-              <a href={product.downloadUrl} target="_blank" rel="noreferrer" className="btn-primary">
-                Download {product.name} <Icon name="download" className="h-4 w-4" />
-              </a>
-            ) : available ? (
-              <span className="btn-primary cursor-not-allowed opacity-50" aria-disabled="true">
-                Download — coming soon <Icon name="download" className="h-4 w-4" />
-              </span>
+            {available ? (
+              <DownloadButton product={product} />
             ) : (
               <Link href="/contact" className="btn-primary">
                 Get in touch <Icon name="arrow-right" className="h-4 w-4" />

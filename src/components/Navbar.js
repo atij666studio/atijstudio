@@ -9,7 +9,7 @@ import { nav, products } from "@/lib/site";
 
 // Navbar button points at the featured product (see `featured` in src/lib/site.js).
 const featured = products.find((p) => p.featured);
-const featuredHref = featured?.downloadUrl ?? (featured?.slug ? `/plugins/${featured.slug}` : "/#featured");
+const featuredHref = featured?.slug ? `/plugins/${featured.slug}` : "/#featured";
 const featuredLabel = featured ? `Get ${featured.name}` : null;
 
 export default function Navbar() {
