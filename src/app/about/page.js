@@ -38,7 +38,7 @@ export default function AboutPage() {
       </section>
 
       {/* Thank you + credits */}
-      <section className="border-b border-border py-20">
+      <section id="thanks" className="scroll-mt-20 border-b border-border py-20">
         <div className="shell">
           <Reveal className="max-w-2xl">
             <span className="eyebrow">Thank you</span>

@@ -38,6 +38,83 @@ export default function Home() {
         <ScrollCue className="absolute bottom-8 left-0 right-0 hidden sm:flex" />
       </section>
 
+      {/* Acknowledgement: NAM and TONE3000 */}
+      <section id="built-on" className="scroll-mt-20 border-b border-border bg-surface/40 py-24">
+        <div className="shell">
+          <Reveal className="max-w-3xl">
+            <span className="eyebrow">Built on the work of others</span>
+            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+              None of this exists without <span className="text-gradient">NAM</span> and{" "}
+              <span className="text-gradient">TONE3000</span>.
+            </h2>
+            <p className="mt-4 text-lg text-muted">
+              Almost everything on this site stands on two things we didn&apos;t make: an open-source amp modeling project, and
+              the community that fills it with tone. Parametric NAM is our own addition, but it was only possible
+              because they came first.
+            </p>
+          </Reveal>
+
+          <RevealGroup className="mt-12 grid gap-5 md:grid-cols-2">
+            <RevealItem>
+              <div className="card flex h-full flex-col">
+                <span className="text-sm text-accent-2">by Steven Atkinson</span>
+                <h3 className="mt-2 font-display text-xl font-semibold">Neural Amp Modeler (NAM)</h3>
+                <p className="mt-3 flex-1 text-sm text-muted">
+                  The open-source project that made neural amp capture something anyone can do: record an amp, train a
+                  model, play it anywhere. Our apps play NAM captures with Steven&apos;s NeuralAmpModelerCore, and Parametric NAM is built on top of NAM&apos;s ideas and tools.
+                </p>
+                <a
+                  href="https://github.com/sdatkinson/neural-amp-modeler"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-accent-2"
+                >
+                  NAM on GitHub <Icon name="external" className="h-4 w-4" />
+                </a>
+              </div>
+            </RevealItem>
+            <RevealItem>
+              <div className="card flex h-full flex-col">
+                <span className="text-sm text-accent-2">and its community</span>
+                <h3 className="mt-2 font-display text-xl font-semibold">TONE3000</h3>
+                <p className="mt-3 flex-1 text-sm text-muted">
+                  Thousands of captures of amps, pedals and outboard gear, shared freely by players and tone-makers
+                  around the world. Several of our apps let you browse and load them from inside the app, and the
+                  sounds you hear from them are largely the work of the people who made those captures.
+                </p>
+                <a
+                  href="https://www.tone3000.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-accent-2"
+                >
+                  Visit TONE3000 <Icon name="external" className="h-4 w-4" />
+                </a>
+              </div>
+            </RevealItem>
+          </RevealGroup>
+
+          <Reveal delay={0.1} className="mt-10 max-w-3xl">
+            <p className="flex gap-3 text-muted">
+              <Icon name="heart" className="mt-0.5 h-5 w-5 shrink-0 text-accent-2" />
+              <span>
+                Our apps are free because theirs are. If these tools help you, please support the projects underneath
+                them too: star NAM on GitHub, share your captures on TONE3000, and credit the capture makers whose
+                tones you use.
+              </span>
+            </p>
+            <p className="mt-6 text-xs text-muted/80">
+              ATIJ STUDIO is an independent developer and isn&apos;t affiliated with or endorsed by the Neural Amp
+              Modeler project or TONE3000.{" "}
+              <Link href="/about#thanks" className="underline underline-offset-2 hover:text-foreground">
+                Everything else we build on
+              </Link>
+              .
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Technology teaser */}
       <section className="border-b border-border py-24">
         <div className="shell">
