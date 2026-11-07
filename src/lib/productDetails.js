@@ -162,7 +162,7 @@ export const productDetails = {
         {
           name: "Windows 10/11",
           steps: [
-            "Download the Installer and run `AtiNAMatiC-Tone-v1.2.6-Windows-x64-Setup.exe`.",
+            "Download the Installer and run `AtiNAMatiC-Tone-v1.2.7-Windows-x64-Setup.exe`.",
             "If you see \"Windows protected your PC\", click More info, then Run anyway.",
             "Tick the plug-in formats you want (VST3, CLAP, LV2) and finish. The app is always installed.",
             "Rescan plug-ins in your DAW.",

@@ -133,7 +133,7 @@ export const products = [
       "Load any .nam capture with dual A1/A2 model stacking, then build your rig on a 32-slot effect grid with 40+ DSP blocks — amps, cabs, drives, modulation, delays, reverbs and EQs — plus a looper, tuner, MIDI learn and 64 factory presets.",
     tags: ["Amp Sim", "Multi-FX", "NAM"],
     status: "available",
-    version: "v1.2.6",
+    version: "v1.2.7",
     price: "Free",
     downloadUrl: null,
     // Code repo is private; installers are published in this public repo.
