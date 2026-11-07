@@ -149,6 +149,13 @@ export const productDetails = {
     ],
     gallery: [
       shot("atinamatic-tone", "main", 1402, 816, "Split signal path on the effect grid, with the Thunder Stack amp open"),
+      shot("atinamatic-tone", "ethereal-clean-amp", 1402, 816, "Ethereal Clean amp with its tone controls"),
+      shot("atinamatic-tone", "screamer-distortion", 1402, 816, "Screamer Distortion pedal"),
+      shot("atinamatic-tone", "room-reverb", 1402, 816, "Room Reverb with size, decay, pre-delay and EQ"),
+      shot("atinamatic-tone", "nam-loader", 1402, 816, "NAM loader with calibration, gate and the Parametric NAM trainer"),
+      shot("atinamatic-tone", "advanced-looper", 1402, 816, "Advanced looper: four tracks, overdub, speed and stem split"),
+      shot("atinamatic-tone", "advanced-tuner", 1402, 816, "Advanced tuner with strobe, stream and harmonic modes"),
+      shot("atinamatic-tone", "gig-view", 1402, 816, "Gig view: eight scenes on big footswitch tiles"),
     ],
     install: {
       platforms: [
