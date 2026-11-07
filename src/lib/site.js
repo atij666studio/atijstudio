@@ -53,10 +53,36 @@ export const nav = [
 // the latest GitHub Release's files, or paste a single direct link into `downloadUrl`;
 // either way there's no sign-up or email step. Then change
 // `status` to "available".
+// Sections of the Plugins page, in display order. Add a product to one with its
+// `series` field; available products are listed first automatically.
+export const series = [
+  {
+    key: "atinamatic",
+    title: "AtiNAMatiC Series",
+    description: "Amp modeling, live rigs, capture training, mixing and pitch tools built around neural captures.",
+  },
+  {
+    key: "one-knob",
+    title: "One Knob Series",
+    description: "One knob, one job. Focused plug-ins to place around your amp sim.",
+  },
+  {
+    key: "nex",
+    title: "Nex Series",
+    description: "Instruments with neural captures in their signal path.",
+  },
+  {
+    key: "more",
+    title: "More from ATIJ STUDIO",
+    description: "A high-gain distortion and a full DAW.",
+  },
+];
+
 export const products = [
   {
     slug: "neural-stage",
     name: "Neural Stage",
+    series: "atinamatic",
     tagline: "Live guitar rig host built around NAM amp models",
     description:
       "Load up to four NAM captures and blend them live on an LCD blend screen, add a built-in dual-IR cab, run your VST3/CLAP/LV2/AU plugins around the amp in one or two parallel lanes, and play the night from a gig view with gapless scene switching.",
@@ -78,6 +104,7 @@ export const products = [
   {
     slug: "soulcrusher",
     name: "SoulCrusher",
+    series: "more",
     version: "v2.9.0",
     tagline: "High-gain distortion processor + neural amp capture engine",
     description:
@@ -100,6 +127,7 @@ export const products = [
   {
     slug: "atinamatic-tone",
     name: "AtiNAMatiC Tone",
+    series: "atinamatic",
     tagline: "Full guitar amp simulator with a 32-slot effect grid",
     description:
       "Load any .nam capture with dual A1/A2 model stacking, then build your rig on a 32-slot effect grid with 40+ DSP blocks — amps, cabs, drives, modulation, delays, reverbs and EQs — plus a looper, tuner, MIDI learn and 64 factory presets.",
@@ -120,6 +148,7 @@ export const products = [
   {
     slug: "parametric-nam",
     name: "Parametric NAM",
+    series: "atinamatic",
     tagline: "True continuous parametric amp captures — player and trainer",
     description:
       "Train one neural network on several settings of a knob, then turn that knob smoothly in your DAW instead of jumping between snapshots. Also plays regular NAM/A2, AIDA-X and GuitarML models.",
@@ -136,6 +165,7 @@ export const products = [
   {
     slug: "nmm-console",
     name: "NMM Console",
+    series: "atinamatic",
     tagline: "Neural mix & mastering console",
     description:
       "A mix and mastering strip built around NAM models: neural saturation and compression, a 5-band EQ, stereo width, and a true-peak limiter — load the built-in models or your own .nam files.",
@@ -152,6 +182,7 @@ export const products = [
   {
     slug: "nex-audio",
     name: "Nex Audio",
+    series: "atinamatic",
     tagline: "Reference-driven tone matching",
     description:
       "Load a reference track, let it analyze the sound, and get a suggested NAM capture and signal chain to get your guitar tone closer to the record.",
@@ -168,6 +199,7 @@ export const products = [
   {
     slug: "neural-pitch",
     name: "Neural Pitch",
+    series: "atinamatic",
     tagline: "Audio to MIDI — sing, hum or beatbox it in",
     description:
       "Accurate pitch tracking with scale quantize, vibrato followed as pitch bend, in-key harmony, a beatbox-to-drums mode you can teach your own sounds, a built-in piano roll, and audio-file-to-MIDI conversion.",
@@ -184,6 +216,7 @@ export const products = [
   {
     slug: "arcsyn",
     name: "ArcSyn",
+    series: "nex",
     tagline: "Neural capture synthesizer",
     description:
       "A two-oscillator polyphonic synth with two neural capture slots that run real amps, pedals and outboard gear (NAM, ATIJ Parametric, AIDA-X, GuitarML) inside the signal path — plus a mod matrix, arpeggiator, sequencer, effects and 302 factory presets.",
@@ -200,6 +233,7 @@ export const products = [
   {
     slug: "one-knob-series",
     name: "AtiNAMatiC — One Knob Series",
+    series: "one-knob",
     tagline: "23 single-knob plug-ins: Boost, Dirt, Gate, Air, Tight and more",
     description:
       "A line of focused, single-purpose plugins — one knob, one job. Boost, saturation, gating, compression, low-end tightening, room and more, built to shape a tone fast without menu-diving.",
@@ -222,6 +256,7 @@ export const products = [
   {
     slug: "tonematic",
     name: "ToneMatic",
+    series: "more",
     tagline: "A fast, lightweight native DAW",
     description:
       "A multitrack DAW built on Tracktion Engine for recording, editing, MIDI and mixing — light and quick, with a classic studio workflow that feels instantly familiar.",
@@ -276,6 +311,12 @@ export const credits = [
     note: "The engine ToneMatic is built on, and the effects library it ships with, alongside many more open-source plugins.",
   },
 ];
+
+// Available products first, otherwise keeping the order above.
+export function availableFirst(list) {
+  const rank = (p) => (p.status === "available" ? 0 : 1);
+  return [...list].sort((a, b) => rank(a) - rank(b));
+}
 
 export const values = [
   {

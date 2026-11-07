@@ -4,10 +4,10 @@ import DownloadButton from "@/components/DownloadButton";
 import { Icon } from "@/components/Icons";
 import { HeroGroup, HeroItem, Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import ScrollCue from "@/components/motion/ScrollCue";
-import { asset, products, site, technology } from "@/lib/site";
+import { asset, availableFirst, products, site, technology } from "@/lib/site";
 
 const flagship = products.find((p) => p.featured);
-const otherProducts = products.filter((p) => !p.featured);
+const otherProducts = availableFirst(products.filter((p) => !p.featured));
 
 export default function Home() {
   return (
