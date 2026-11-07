@@ -444,12 +444,21 @@ export const productDetails = {
           ],
           tip: "No installer? The Manual install zip has the app and both plug-ins to copy yourself; its README says where they go.",
         },
+        {
+          name: "Linux (x86_64 / ARM64)",
+          steps: [
+            "Download the archive for your machine and extract it.",
+            "In that folder, run `./install.sh`. It asks whether to install the app and the VST3 plug-in.",
+            "Start it with `arcsyn` or from your applications menu, and rescan plug-ins in your DAW.",
+          ],
+          tip: "`./install.sh --all` installs everything, `--system` installs for all users, `--uninstall` removes it. Raspberry Pi 5: use the ARM64 archive.",
+        },
       ],
     },
     specs: [
       ["Type", "Polyphonic synthesizer (instrument)"],
       ["Formats", "VST3 · AU (macOS) · Standalone"],
-      ["Platforms", "Windows 10/11 x64 · macOS (Apple Silicon + Intel)"],
+      ["Platforms", "Windows 10/11 x64 · macOS (Apple Silicon + Intel) · Linux x86_64 · Linux ARM64"],
       ["Oscillators", "2, with unison, FM, ring mod and hard sync"],
       ["Neural slots", "2 · NAM, ATIJ Parametric, AIDA-X, GuitarML"],
       ["Modulation", "8-slot matrix · 4 macros · MPE"],
