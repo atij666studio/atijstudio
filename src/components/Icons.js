@@ -93,6 +93,13 @@ export function Icon({ name, className = "h-6 w-6" }) {
           <path d="M6 6l12 12M18 6L6 18" />
         </svg>
       );
+    case "chat":
+      return (
+        <svg {...common}>
+          <path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.4A8 8 0 1121 12z" />
+          <path d="M8.5 11h7M8.5 14h4" />
+        </svg>
+      );
     case "mail":
       return (
         <svg {...common}>

@@ -4,10 +4,11 @@ import DownloadButton from "@/components/DownloadButton";
 import { Icon } from "@/components/Icons";
 import { HeroGroup, HeroItem, Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import ScrollCue from "@/components/motion/ScrollCue";
-import { asset, availableFirst, products, site, technology } from "@/lib/site";
+import { asset, availableFirst, feedbackUrl, products, site, technology } from "@/lib/site";
 
 const flagship = products.find((p) => p.featured);
 const otherProducts = availableFirst(products.filter((p) => !p.featured));
+const released = availableFirst(products.filter((p) => p.status === "available" && feedbackUrl(p)));
 
 export default function Home() {
   return (
@@ -249,17 +250,52 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Feedback */}
+      <section id="feedback" className="scroll-mt-20 border-b border-border py-24">
+        <div className="shell">
+          <Reveal className="max-w-2xl">
+            <span className="eyebrow">Feedback</span>
+            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight">Found a bug? Have an idea?</h2>
+            <p className="mt-4 text-muted">
+              Tell us. Each app has a short form for bug reports and one for feedback and feature ideas. Posts are
+              public, so other players can add to them and see when something&apos;s fixed. You&apos;ll need a free
+              GitHub account to post.
+            </p>
+          </Reveal>
+
+          <RevealGroup className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {released.map((product) => (
+              <RevealItem key={product.slug}>
+                <a
+                  href={feedbackUrl(product)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="card flex h-full items-center justify-between gap-3 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50"
+                >
+                  <span>
+                    <span className="block font-display font-semibold">{product.name}</span>
+                    <span className="mt-1 block text-xs text-muted">Report a bug or share feedback</span>
+                  </span>
+                  <Icon name="external" className="h-4 w-4 shrink-0 text-muted" />
+                </a>
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </div>
+      </section>
+
+      {/* Stay in the loop */}
       <section className="grid-glow">
         <Reveal className="shell flex flex-col items-start gap-6 py-24 text-left" as="div">
           <h2 className="max-w-xl font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-            Want to hear about what&apos;s next?
+            More is on the way.
           </h2>
           <p className="max-w-lg text-muted">
-            Get in touch if you want early access to upcoming plugins, or just want to talk tone.
+            New apps and updates land on this site first. Bookmark it (Ctrl+D, or Cmd+D on a Mac) and check back now
+            and then. No mailing list, no sign-up.
           </p>
-          <Link href="/contact" className="btn-primary">
-            Get in touch <Icon name="arrow-right" className="h-4 w-4" />
+          <Link href="/plugins" className="btn-primary">
+            Browse all plugins <Icon name="arrow-right" className="h-4 w-4" />
           </Link>
         </Reveal>
       </section>

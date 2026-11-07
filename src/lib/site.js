@@ -317,6 +317,11 @@ export const credits = [
 ];
 
 // Available products first, otherwise keeping the order above.
+// GitHub "new issue" page (bug report / feedback forms) for a released product
+export function feedbackUrl(product) {
+  return product?.releaseRepo ? `https://github.com/${product.releaseRepo}/issues/new/choose` : null;
+}
+
 export function availableFirst(list) {
   const rank = (p) => (p.status === "available" ? 0 : 1);
   return [...list].sort((a, b) => rank(a) - rank(b));

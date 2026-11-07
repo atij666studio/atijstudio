@@ -6,7 +6,7 @@ import { Icon } from "@/components/Icons";
 import { HeroGroup, HeroItem, Reveal } from "@/components/motion/Reveal";
 import { Credits, GallerySection, Highlights, Install, Overview, Specs } from "@/components/ProductSections";
 import { productDetails } from "@/lib/productDetails";
-import { asset, products, site } from "@/lib/site";
+import { asset, feedbackUrl, products, site } from "@/lib/site";
 
 // One page per product at /plugins/<slug>/. SoulCrusher has its own
 // hand-made page (src/app/plugins/soulcrusher), so it's left out here.
@@ -69,6 +69,11 @@ export default async function ProductPage({ params }) {
                 <Icon name="github" className="h-4 w-4" /> Source code
               </a>
             )}
+            {available && feedbackUrl(product) && (
+              <a href={feedbackUrl(product)} target="_blank" rel="noopener noreferrer" className="btn-secondary">
+                <Icon name="chat" className="h-4 w-4" /> Feedback &amp; bugs
+              </a>
+            )}
             <Link href="/plugins" className="btn-secondary">
               All plugins
             </Link>
@@ -116,7 +121,7 @@ export default async function ProductPage({ params }) {
           <p className="max-w-lg text-muted">
             {available
               ? site.distribution
-              : "It's free when it lands. Get in touch if you'd like to hear when it's out."}
+              : "It's free when it lands. Bookmark this page and check back: the download appears here as soon as it's ready."}
           </p>
           <div className="flex flex-wrap gap-3">
             {available ? (
@@ -127,12 +132,13 @@ export default async function ProductPage({ params }) {
                     <Icon name="github" className="h-4 w-4" /> Source code
                   </a>
                 )}
+                {feedbackUrl(product) && (
+                  <a href={feedbackUrl(product)} target="_blank" rel="noopener noreferrer" className="btn-secondary">
+                    <Icon name="chat" className="h-4 w-4" /> Feedback &amp; bugs
+                  </a>
+                )}
               </>
-            ) : (
-              <Link href="/contact" className="btn-primary">
-                Get in touch <Icon name="arrow-right" className="h-4 w-4" />
-              </Link>
-            )}
+            ) : null}
             <Link href="/plugins" className="btn-secondary">
               See all plugins
             </Link>

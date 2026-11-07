@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Icon } from "@/components/Icons";
 import ContactForm from "@/components/ContactForm";
 import { HeroGroup, HeroItem, Reveal } from "@/components/motion/Reveal";
@@ -19,8 +20,11 @@ export default function ContactPage() {
               Get in touch.
             </h1>
             <p className="mt-4 max-w-md text-lg text-muted">
-              Questions about a plugin, a download link, or just want to talk tone and neural amp modeling —
-              fill out the form or email us directly. We usually reply within a couple of business days.
+              Bug reports and feedback about an app go through its{" "}
+              <Link href="/#feedback" className="text-foreground underline underline-offset-2 hover:text-accent-2">
+                feedback form
+              </Link>
+              , so nothing gets lost. For anything else, use the form or email directly.
             </p>
           </HeroItem>
 
