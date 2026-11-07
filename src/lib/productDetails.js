@@ -422,13 +422,51 @@ export const productDetails = {
       shot("arcsyn", "nam", 1520, 1080, "Neural capture slots in the signal path"),
       shot("arcsyn", "mod-matrix", 1520, 1080, "Mod matrix"),
     ],
+    install: {
+      platforms: [
+        {
+          name: "Windows 10/11",
+          steps: [
+            "Download the Installer and run `ArcSyn-2.0.0-Windows-Setup.exe`.",
+            "If you see \"Windows protected your PC\", click More info, then Run anyway.",
+            "Tick what you want (VST3, the app, the manual) and finish.",
+            "Rescan plug-ins in your DAW.",
+          ],
+          tip: "No installer? The Portable zip has `ArcSyn.exe`, which runs from anywhere, and `ArcSyn.vst3`, which you copy to `C:\\Program Files\\Common Files\\VST3`.",
+        },
+        {
+          name: "macOS",
+          steps: [
+            "Download the Installer (`.pkg`).",
+            "If macOS won't open it, right-click it and choose Open (or go to System Settings › Privacy & Security and click Open Anyway).",
+            "Click Customize and tick what you want: the app, VST3, AU.",
+            "Rescan plug-ins in your DAW. Logic and GarageBand use the AU version.",
+          ],
+          tip: "No installer? The Manual install zip has the app and both plug-ins to copy yourself; its README says where they go.",
+        },
+      ],
+    },
     specs: [
       ["Type", "Polyphonic synthesizer (instrument)"],
-      ["Formats", "VST3 (Windows, macOS) · AU (macOS) · Standalone"],
+      ["Formats", "VST3 · AU (macOS) · Standalone"],
+      ["Platforms", "Windows 10/11 x64 · macOS (Apple Silicon + Intel)"],
       ["Oscillators", "2, with unison, FM, ring mod and hard sync"],
       ["Neural slots", "2 · NAM, ATIJ Parametric, AIDA-X, GuitarML"],
       ["Modulation", "8-slot matrix · 4 macros · MPE"],
       ["Presets", "302 factory presets"],
+    ],
+    credits: [
+      {
+        title: "Built with",
+        items: [
+          { name: "NeuralAmpModelerCore", by: "Steven Atkinson", use: "NAM and A2 capture playback", license: "MIT", url: "https://github.com/sdatkinson/NeuralAmpModelerCore" },
+          { name: "RTNeural", by: "Jatin Chowdhury", use: "AIDA-X and GuitarML capture playback", license: "BSD 3-Clause", url: "https://github.com/jatinchowdhury18/RTNeural" },
+          { name: "Eigen", by: "Eigen contributors", use: "Linear algebra for the neural engines", license: "MPL 2.0", url: "https://eigen.tuxfamily.org" },
+          { name: "nlohmann/json", by: "Niels Lohmann", use: "Reading model files", license: "MIT", url: "https://github.com/nlohmann/json" },
+          { name: "JUCE", by: "Raw Material Software", use: "Application and plug-in framework", url: "https://juce.com" },
+          { name: "Barlow", by: "Jeremy Tribby", use: "Interface font", license: "SIL OFL 1.1", url: "https://github.com/jpt/barlow" },
+        ],
+      },
     ],
   },
 

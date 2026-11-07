@@ -221,8 +221,12 @@ export const products = [
     description:
       "A two-oscillator polyphonic synth with two neural capture slots that run real amps, pedals and outboard gear (NAM, ATIJ Parametric, AIDA-X, GuitarML) inside the signal path — plus a mod matrix, arpeggiator, sequencer, effects and 302 factory presets.",
     tags: ["Synth", "Neural Capture", "Instrument"],
-    status: "coming-soon",
-    downloadUrl: null, // TODO: direct download link
+    status: "available",
+    version: "v2.0.0",
+    price: "Free",
+    downloadUrl: null,
+    // Code repo is private; installers are published in this public repo.
+    releaseRepo: "atij666studio/ArcSyn-Downloads",
     image: {
       src: "/screenshots/arcsyn/main.webp",
       alt: "ArcSyn synthesizer main panel with oscillators, filters, NAM slots and effects",
