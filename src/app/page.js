@@ -137,6 +137,11 @@ export default function Home() {
                 no account and no email sign-up. Download it and play.
               </p>
               <p>
+                <span className="text-foreground">Free doesn&apos;t mean rushed.</span> None of these apps were
+                knocked together in a few days or weeks. Most took months to build, and some took a couple of years,
+                with a long stretch of testing on my own rigs before I called them ready.
+              </p>
+              <p>
                 Some of the apps are new, and on my own I can&apos;t test every computer, DAW and audio interface out
                 there. If something breaks or could be better, a bug report or an idea through the feedback forms is
                 the most useful thing you can give back.

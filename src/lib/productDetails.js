@@ -18,6 +18,10 @@ export const productDetails = {
   "neural-stage": {
     headline: "Four amps. One blend. Your whole rig on stage.",
     overview: [
+      {
+        lead: "Love NAM, but can't play without your favourite plugins?",
+        text: "Neural Stage puts them in one place. It's a NAM player, a four-model blender and a plugin host in one app: put your own VST3, CLAP, LV2 or AU plugins before and after the amp, and play the whole rig from a single window, on stage or at home.",
+      },
       "Neural Stage is a live guitar rig built around neural amp captures. Load up to four NAM models into the amp's blend screen and drag one point to morph between them, with constant loudness and no phasing.",
       "Put your own plugins before and after the amp, add the built-in dual-IR cab, and play the night from a gig view with big footswitch tiles and gapless scene switching. It runs standalone or inside your DAW.",
     ],
@@ -118,7 +122,12 @@ export const productDetails = {
   "atinamatic-tone": {
     headline: "A full guitar rig on a 32-slot grid.",
     overview: [
-      "AtiNAMatiC Tone is a complete amp and effects processor. Load any NAM capture, stack two models, and build your rig on a 32-slot grid with serial and parallel routing.",
+      {
+        lead: "All about the sound.",
+        text: "AtiNAMatiC Tone is a complete NAM-based amp sim with a deliberately simple interface: the work went into how it sounds and plays, not into eye candy.",
+      },
+      "It started as the software for my own hardware rig, a Raspberry Pi 5 with a Blokas Pisound audio board. Along the way I built a desktop version too, and that's what you can download here, free.",
+      "Inside is a full amp and effects processor: load any NAM capture, stack two models, and build your rig on a 32-slot grid with serial and parallel routing.",
       "Over 40 DSP blocks cover amps, cabs, drives, compressors, modulation, delays, reverbs, EQs, filters, pitch and wah, with a looper, tuner and tap tempo built in.",
     ],
     highlights: [

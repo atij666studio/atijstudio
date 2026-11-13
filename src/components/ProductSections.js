@@ -18,9 +18,16 @@ export function Overview({ details }) {
           )}
         </Reveal>
         <Reveal delay={0.1} className="flex flex-col gap-5 text-lg text-muted">
-          {details.overview.map((p) => (
-            <p key={p.slice(0, 40)}>{p}</p>
-          ))}
+          {details.overview.map((p) =>
+            typeof p === "string" ? (
+              <p key={p.slice(0, 40)}>{p}</p>
+            ) : (
+              <p key={(p.lead || p.text).slice(0, 40)}>
+                {p.lead && <span className="font-medium text-foreground">{p.lead} </span>}
+                {p.text}
+              </p>
+            ),
+          )}
         </Reveal>
       </div>
     </section>
