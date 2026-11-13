@@ -4,6 +4,7 @@ import DownloadButton from "@/components/DownloadButton";
 import { Icon } from "@/components/Icons";
 import { HeroGroup, HeroItem, Reveal, RevealGroup, RevealItem } from "@/components/motion/Reveal";
 import ScrollCue from "@/components/motion/ScrollCue";
+import SupportButton from "@/components/SupportButton";
 import { asset, availableFirst, feedbackUrl, products, site, technology } from "@/lib/site";
 
 const flagship = products.find((p) => p.featured);
@@ -112,6 +113,46 @@ export default function Home() {
               </Link>
               .
             </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Why it's free */}
+      <section id="why-free" className="scroll-mt-20 border-b border-border py-24">
+        <div className="shell">
+          <Reveal className="max-w-3xl">
+            <span className="eyebrow">Why it&apos;s free</span>
+            <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight sm:text-4xl">Free, with no catch.</h2>
+            <div className="mt-6 flex flex-col gap-5 text-lg text-muted">
+              <p>
+                I&apos;m one person building these in my spare time, alongside a full-time job. This isn&apos;t how I
+                make a living, and I don&apos;t want to sell tools back to the community that made them possible.
+              </p>
+              <p>
+                Neural Amp Modeler is free. Thousands of the captures on TONE3000 are free. I learned from all of it and
+                built on top of it, so giving my apps away is the honest way to give something back.
+              </p>
+              <p>
+                <span className="text-foreground">Free means free:</span> no trial, no time limit, no locked features,
+                no account and no email sign-up. Download it and play.
+              </p>
+              <p>
+                Some of the apps are new, and on my own I can&apos;t test every computer, DAW and audio interface out
+                there. If something breaks or could be better, a bug report or an idea through the feedback forms is
+                the most useful thing you can give back.
+              </p>
+              <p>
+                If you&apos;d like to chip in, tips through{" "}
+                <span className="text-foreground">Show your support</span> are welcome and go into building more.
+                They&apos;re never required and don&apos;t unlock anything.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.1} className="mt-8 flex flex-wrap gap-3">
+            <a href="#feedback" className="btn-primary">
+              Send feedback <Icon name="arrow-right" className="h-4 w-4" />
+            </a>
+            <SupportButton align="left" className="btn-secondary" />
           </Reveal>
         </div>
       </section>
