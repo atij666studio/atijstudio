@@ -68,7 +68,7 @@ export const productDetails = {
       },
     ],
     gallery: [
-      shot("neural-stage", "main", 1400, 900, "Main view: four channels on the neural blend screen"),
+      shot("neural-stage", "main", 1280, 1000, "Main view while playing: the neural blend screen, with plugins before and after the amp"),
       shot("neural-stage", "amp", 1400, 900, "Amp page: pre-amp shaping and output modes"),
       shot("neural-stage", "cab", 1400, 900, "Built-in dual-IR cabinet"),
       shot("neural-stage", "input", 1400, 900, "Input page with the noise gate"),

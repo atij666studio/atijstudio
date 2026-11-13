@@ -97,8 +97,8 @@ export const products = [
     image: {
       src: "/screenshots/neural-stage/main.webp",
       alt: "Neural Stage main window: four NAM channels on the neural blend screen, amp controls and scene footswitches",
-      width: 1400,
-      height: 900,
+      width: 1280,
+      height: 1000,
     },
   },
   {
