@@ -152,7 +152,7 @@ export const products = [
     releaseRepo: "atij666studio/AtiNAMatiC-Tone-Downloads",
     image: {
       src: "/screenshots/atinamatic-tone/main.webp",
-      alt: "AtiNAMatiC Tone with a split signal path on the effect grid and the Thunder Stack amp open",
+      alt: "AtiNAMatiC Tone with a split signal path on the effect grid, a plugin block on row 1 and the Vintage Drive amp open",
       width: 1402,
       height: 816,
     },
