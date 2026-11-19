@@ -187,3 +187,35 @@ export function Specs({ details }) {
     </section>
   );
 }
+
+// Version history: details.changelog = [{ version, date, note?, items: [...] }],
+// newest first. Items may contain `code` in backticks.
+export function Changelog({ details }) {
+  if (!details?.changelog?.length) return null;
+  return (
+    <section id="changelog" className="scroll-mt-20 border-b border-border py-24">
+      <div className="shell grid gap-10 lg:grid-cols-[0.6fr_1.4fr]">
+        <Reveal>
+          <span className="eyebrow">Changelog</span>
+          <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight">What&apos;s new.</h2>
+        </Reveal>
+        <Reveal delay={0.1} className="flex flex-col gap-10">
+          {details.changelog.map((v) => (
+            <article key={v.version} className="border-t border-border pt-6">
+              <h3 className="font-display text-xl font-semibold">
+                {v.version}
+                {v.date && <span className="ml-3 text-sm font-normal text-muted">{v.date}</span>}
+              </h3>
+              {v.note && <p className="mt-2 text-sm text-muted">{withCode(v.note)}</p>}
+              <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-muted marker:text-accent-2">
+                {v.items.map((it) => (
+                  <li key={it.slice(0, 60)}>{withCode(it)}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </Reveal>
+      </div>
+    </section>
+  );
+}

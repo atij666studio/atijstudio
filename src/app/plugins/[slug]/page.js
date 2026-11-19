@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import DownloadButton from "@/components/DownloadButton";
 import { Icon } from "@/components/Icons";
 import { HeroGroup, HeroItem, Reveal } from "@/components/motion/Reveal";
-import { Credits, GallerySection, Highlights, Install, Overview, Specs } from "@/components/ProductSections";
+import { Changelog, Credits, GallerySection, Highlights, Install, Overview, Specs } from "@/components/ProductSections";
 import { productDetails } from "@/lib/productDetails";
 import { asset, feedbackUrl, products, site } from "@/lib/site";
 
@@ -110,6 +110,7 @@ export default async function ProductPage({ params }) {
       />
       <Specs details={details} />
       <Install details={details} />
+      <Changelog details={details} />
       <Credits details={details} />
 
       {/* Closing call to action */}
