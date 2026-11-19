@@ -157,7 +157,7 @@ export const productDetails = {
       },
       {
         title: "Your own plugins as blocks",
-        description: "Put any of your installed VST3 plugins (AU on macOS, LV2 on Linux) in any grid slot and swap between it and the built-in models. Plugin blocks are saved in presets and scenes, and the plugin scan never freezes on plugins waiting for activation. New for Windows and Linux x86_64; coming to Mac with its next update.",
+        description: "Put any of your installed VST3 plugins (AU on macOS, LV2 on Linux) in any grid slot and swap between it and the built-in models. Plugin blocks are saved in presets and scenes, and the plugin scan never freezes on plugins waiting for activation. On Windows, macOS and Linux x86_64.",
       },
       {
         title: "Capture gear, or your whole rig",
@@ -194,7 +194,7 @@ export const productDetails = {
             "Click Customize and tick what you want: the app, VST3, AU, CLAP, LV2.",
             "Rescan plug-ins in your DAW. Logic and GarageBand use the AU version.",
           ],
-          tip: "The built-in captures and IRs install to `/Library/Application Support/AtiNAMatiC Tone`, where the app and plug-ins find them. The Mac download is still v1.2.7 for now; the new Mac version is coming soon.",
+          tip: "The built-in captures and IRs install to `/Library/Application Support/AtiNAMatiC Tone`, where the app and plug-ins find them.",
         },
         {
           name: "Linux (x86_64 / ARM64)",
@@ -212,6 +212,7 @@ export const productDetails = {
       {
         version: "v1.2.13",
         date: "November 2026",
+        note: "The macOS installer is v1.2.13 too, the first Mac update since v1.2.7: it includes everything from v1.2.12 below.",
         items: [
           "Lower latency: the master safety limiter now looks ahead 1 ms instead of 5 ms, so everything you play comes out 4 ms sooner.",
           "Pitch blocks (Micro Shift, Crystal Harmony, Whammy and the others) no longer report their shifter's delay as plugin latency. Your dry guitar always went through undelayed, but in a DAW the reported delay (up to 70 ms) held back live monitoring and put the dry track early on playback.",
@@ -227,7 +228,7 @@ export const productDetails = {
         date: "November 2026",
         note: "The first update since v1.2.7, with everything from v1.2.8 to v1.2.12.",
         items: [
-          "Your own plugins as blocks: put any installed VST3 (LV2 on Linux) in any grid slot. Plugin blocks show the plugin's own picture, have an ON / OFF switch, OPEN PLUGIN WINDOW and CHANGE PLUGIN, and are saved in presets and scenes. (Windows and Linux x86_64.)",
+          "Your own plugins as blocks: put any installed VST3 (AU on macOS, LV2 on Linux) in any grid slot. Plugin blocks show the plugin's own picture, have an ON / OFF switch, OPEN PLUGIN WINDOW and CHANGE PLUGIN, and are saved in presets and scenes. (Windows, macOS and Linux x86_64.)",
           "Plugins screen (⋮ → Plugins): scan, search, sort and tidy your plugin list. Scanning runs in the background and never freezes on plugins that need activation, hang or crash.",
           "Rig capture: the NAM capture wizard can capture the whole rig you built in the app, plugin blocks included. New NAM CAPTURE button in the NAM block.",
           "Footswitches A-H work like a Quad Cortex: PRESET loads presets 1-8 of the current bank, SCENE recalls scenes, STOMP toggles blocks, HYBRID gives A-D stomps and E-H scenes. The mode button cycles STOMP → SCENE → PRESET → HYBRID.",
