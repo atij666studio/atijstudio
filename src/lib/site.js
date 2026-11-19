@@ -128,9 +128,21 @@ export const products = [
     slug: "atinamatic-tone",
     name: "AtiNAMatiC Tone",
     series: "atinamatic",
-    tagline: "Full guitar amp simulator with a 32-slot effect grid",
+    tagline: "NAM amp sim, multi-effects and plugin host on a 32-slot routing grid",
+    // Shown as chips at the top of the product page.
+    keyFeatures: [
+      "Any .nam capture, A1/A2 model stacking",
+      "Plugin host: your VST3 / AU / LV2 as blocks",
+      "32-slot grid, serial & parallel routing",
+      "40+ amps, cabs & effects",
+      "8 scenes per preset, footswitches A–H",
+      "Capture gear, or your whole rig, as NAM",
+      "Looper, tuner, MIDI learn, 64 presets",
+      "Standalone + VST3, CLAP, LV2, AU",
+      "Windows, macOS, Linux & Raspberry Pi 5",
+    ],
     description:
-      "Load any .nam capture with dual A1/A2 model stacking, then build your rig on a 32-slot effect grid with 40+ DSP blocks — amps, cabs, drives, modulation, delays, reverbs and EQs — or your own VST3 plugins, plus NAM capture, a looper, tuner, MIDI learn and 64 factory presets.",
+      "Load any .nam capture with dual A1/A2 model stacking, then build your rig on a 32-slot grid with flexible serial and parallel routing: 40+ DSP blocks — amps, cabs, drives, modulation, delays, reverbs and EQs — or your own VST3, AU and LV2 plugins as blocks. Plus scenes, rig capture, a looper, tuner, MIDI learn and 64 factory presets.",
     tags: ["Amp Sim", "Multi-FX", "NAM"],
     status: "available",
     version: "v1.2.13",

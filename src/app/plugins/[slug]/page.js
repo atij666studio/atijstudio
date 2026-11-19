@@ -57,6 +57,20 @@ export default async function ProductPage({ params }) {
           <HeroItem>
             <p className="max-w-2xl text-lg text-muted sm:text-xl">{product.tagline}</p>
           </HeroItem>
+          {product.keyFeatures?.length > 0 && (
+            <HeroItem>
+              <ul className="flex max-w-3xl flex-wrap justify-center gap-2" aria-label="Key features">
+                {product.keyFeatures.map((f) => (
+                  <li
+                    key={f}
+                    className="rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-xs text-foreground sm:text-sm"
+                  >
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </HeroItem>
+          )}
           <HeroItem>
             <p className="text-sm font-medium text-accent-2">
               Free · no account or sign-up required{product.sourceUrl ? " · open source" : ""}

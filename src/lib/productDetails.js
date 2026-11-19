@@ -136,12 +136,24 @@ export const productDetails = {
         description: "Load any .nam capture, with dual-model A1/A2 stacking and a built-in NAM browser to audition captures.",
       },
       {
-        title: "32-slot effect grid",
+        title: "Your own plugins as blocks",
+        description: "Put any of your installed VST3 plugins (AU on macOS, LV2 on Linux) in any grid slot and swap between it and the built-in models. Plugin blocks are saved in presets and scenes, and the plugin scan never freezes on plugins waiting for activation. On Windows, macOS and Linux x86_64.",
+      },
+      {
+        title: "Flexible routing on a 32-slot grid",
         description: "Four rows of eight effect slots, each row with its own input and output. Route them in series or parallel, from a simple pedalboard to a stereo wet/dry rig.",
       },
       {
         title: "40+ DSP blocks",
         description: "Amps, cabs, overdrives, compressors, modulation, reverb, delay, EQ, filters, pitch, wah and more.",
+      },
+      {
+        title: "Capture gear, or your whole rig",
+        description: "The built-in capture wizard turns real amps and pedals into NAM models, trained on your computer or on TONE3000. Rig capture turns the rig you built in the app, plugin blocks included, into a NAM capture too.",
+      },
+      {
+        title: "Scenes and footswitches",
+        description: "Eight scenes per preset switch blocks on and off and recall their settings. Footswitches A–H work like a Quad Cortex: PRESET, SCENE, STOMP and HYBRID modes, with a big gig view for the stage.",
       },
       {
         title: "Authentic tape delay",
@@ -154,14 +166,6 @@ export const productDetails = {
       {
         title: "Ready to play",
         description: "64 factory presets across 8 banks, MIDI learn on any knob, a looper, tuner and tap tempo.",
-      },
-      {
-        title: "Your own plugins as blocks",
-        description: "Put any of your installed VST3 plugins (AU on macOS, LV2 on Linux) in any grid slot and swap between it and the built-in models. Plugin blocks are saved in presets and scenes, and the plugin scan never freezes on plugins waiting for activation. On Windows, macOS and Linux x86_64.",
-      },
-      {
-        title: "Capture gear, or your whole rig",
-        description: "The built-in capture wizard turns real amps and pedals into NAM models, trained on your computer or on TONE3000. Rig capture turns the rig you built in the app, plugin blocks included, into a NAM capture too.",
       },
     ],
     gallery: [
