@@ -155,6 +155,14 @@ export const productDetails = {
         title: "Ready to play",
         description: "64 factory presets across 8 banks, MIDI learn on any knob, a looper, tuner and tap tempo.",
       },
+      {
+        title: "Your own plugins as blocks",
+        description: "Put any of your installed VST3 plugins (AU on macOS, LV2 on Linux) in any grid slot and swap between it and the built-in models. Plugin blocks are saved in presets and scenes, and the plugin scan never freezes on plugins waiting for activation. New in v1.2.12 for Windows and Linux x86_64; coming to Mac with its v1.2.12 update.",
+      },
+      {
+        title: "Capture gear, or your whole rig",
+        description: "The built-in capture wizard turns real amps and pedals into NAM models, trained on your computer or on TONE3000. Rig capture turns the rig you built in the app, plugin blocks included, into a NAM capture too.",
+      },
     ],
     gallery: [
       shot("atinamatic-tone", "main", 1402, 816, "Split signal path on the effect grid, with the Thunder Stack amp open"),
@@ -171,7 +179,7 @@ export const productDetails = {
         {
           name: "Windows 10/11",
           steps: [
-            "Download the Installer and run `AtiNAMatiC-Tone-v1.2.7-Windows-x64-Setup.exe`.",
+            "Download the Installer and run `AtiNAMatiC-Tone-v1.2.12-Windows-x64-Setup.exe`.",
             "If you see \"Windows protected your PC\", click More info, then Run anyway.",
             "Tick the plug-in formats you want (VST3, CLAP, LV2) and finish. The app is always installed.",
             "Rescan plug-ins in your DAW.",
@@ -186,7 +194,7 @@ export const productDetails = {
             "Click Customize and tick what you want: the app, VST3, AU, CLAP, LV2.",
             "Rescan plug-ins in your DAW. Logic and GarageBand use the AU version.",
           ],
-          tip: "The built-in captures and IRs install to `/Library/Application Support/AtiNAMatiC Tone`, where the app and plug-ins find them.",
+          tip: "The built-in captures and IRs install to `/Library/Application Support/AtiNAMatiC Tone`, where the app and plug-ins find them. The Mac download is still v1.2.7 for now; v1.2.12 for Mac is coming soon.",
         },
         {
           name: "Linux (x86_64 / ARM64)",
