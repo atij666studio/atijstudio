@@ -140,6 +140,10 @@ export const productDetails = {
         description: "Put any of your installed VST3 plugins (AU on macOS, LV2 on Linux) in any grid slot and swap between it and the built-in models. Plugin blocks are saved in presets and scenes, and the plugin scan never freezes on plugins waiting for activation. On Windows, macOS and Linux x86_64.",
       },
       {
+        title: "Synths played by your guitar",
+        description: "Synth blocks and your own synth plugins follow your guitar, no MIDI pickup needed: single notes with bends, or whole chords for pads. They listen to your dry guitar, so amp hiss never plays them, and Hold keeps a chord sounding for long synth sweeps.",
+      },
+      {
         title: "Flexible routing on a 32-slot grid",
         description: "Four rows of eight effect slots, each row with its own input and output. Route them in series or parallel, from a simple pedalboard to a stereo wet/dry rig.",
       },
@@ -186,7 +190,7 @@ export const productDetails = {
         {
           name: "Windows 10/11",
           steps: [
-            "Download the Installer and run `AtiNAMatiC-Tone-v1.2.13-Windows-x64-Setup.exe`.",
+            "Download the Installer and run `AtiNAMatiC-Tone-v1.2.16-Windows-x64-Setup.exe`.",
             "If you see \"Windows protected your PC\", click More info, then Run anyway.",
             "Tick the plug-in formats you want (VST3, CLAP, LV2) and finish. The app is always installed.",
             "Rescan plug-ins in your DAW.",
@@ -216,6 +220,23 @@ export const productDetails = {
       after: "The full user manual (PDF) is in the download window and is installed with the app.",
     },
     changelog: [
+      {
+        version: "v1.2.16",
+        date: "November 2026",
+        note: "The macOS installer for v1.2.16 is being added shortly; until then the v1.2.13 Mac installer from the previous release works.",
+        items: [
+          "Synth plugins played by your guitar: a synth or sampler plugin in a block turns what you play into MIDI, no MIDI pickup needed. Right-click the block for Single notes (with bends and slides) or Chords (for pads), Bend range, Sensitivity and Sustain: follow the strings, or Hold until your next pick or a mute, for long synth sweeps.",
+          "Synth blocks listen to your dry guitar, wherever they sit: behind a high-gain amp, its hiss and hum no longer make them play by themselves. Where you put a synth still shapes its sound: in front of the amp it's played through the amp, after the amp it sits clean on top of your tone.",
+          "Synths ignore hiss, hum and muted string scratches, a held chord holds still, and damping the strings stops the notes. Notes now last as long as the strings ring.",
+          "The SYNTH block's synths respond to soft picking (about 20 dB more sensitive).",
+          "BANK UP / DOWN browse the banks without changing your sound, like a Quad Cortex; A-H then load from the bank on show.",
+          "Right-click an input box for the input gate and Input settings, or an output box for Capture this rig as NAM. The input meter is blue while the input gate is on.",
+          "Plugin blocks show their plugin's card under the grid: tap it for the plugin's window, right-click it for the block's menu.",
+          "TONE3000: no key of your own needed, just sign in.",
+          "Fixed: changing the buffer size or sample rate with some synth plugins loaded (KORG Multi/Poly, OB-Xd and others) crashed the app.",
+          "Fixed: a plugin amp or cab in place of the built-in one left the built-in amp / cab running underneath it.",
+        ],
+      },
       {
         version: "v1.2.13",
         date: "November 2026",
