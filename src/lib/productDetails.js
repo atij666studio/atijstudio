@@ -223,7 +223,6 @@ export const productDetails = {
       {
         version: "v1.2.16",
         date: "November 2026",
-        note: "The macOS installer for v1.2.16 is being added shortly; until then the v1.2.13 Mac installer from the previous release works.",
         items: [
           "Synth plugins played by your guitar: a synth or sampler plugin in a block turns what you play into MIDI, no MIDI pickup needed. Right-click the block for Single notes (with bends and slides) or Chords (for pads), Bend range, Sensitivity and Sustain: follow the strings, or Hold until your next pick or a mute, for long synth sweeps.",
           "Synth blocks listen to your dry guitar, wherever they sit: behind a high-gain amp, its hiss and hum no longer make them play by themselves. Where you put a synth still shapes its sound: in front of the amp it's played through the amp, after the amp it sits clean on top of your tone.",
