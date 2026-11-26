@@ -190,7 +190,7 @@ export const productDetails = {
         {
           name: "Windows 10/11",
           steps: [
-            "Download the Installer and run `AtiNAMatiC-Tone-v1.2.16-Windows-x64-Setup.exe`.",
+            "Download the Installer and run `AtiNAMatiC-Tone-v1.2.18-Windows-x64-Setup.exe`.",
             "If you see \"Windows protected your PC\", click More info, then Run anyway.",
             "Tick the plug-in formats you want (VST3, CLAP, LV2) and finish. The app is always installed.",
             "Rescan plug-ins in your DAW.",
@@ -220,6 +220,24 @@ export const productDetails = {
       after: "The full user manual (PDF) is in the download window and is installed with the app.",
     },
     changelog: [
+      {
+        version: "v1.2.18",
+        date: "November 2026",
+        note: "Windows and Linux are out now; the macOS installer follows shortly.",
+        items: [
+          "Factory presets re-tuned by ear and by measurement: less harsh high end on the high-gain presets, fuller cleans, matched loudness across all 64 presets and less hiss.",
+          "One layout for every factory preset: gate, boost, pitch and drives before the amp, AMP in slot 4, CAB in slot 5, EQ and modulation after it, DELAY in slot 7 and REVERB last. Easy to find your way round, and a good starting point for your own presets.",
+          "Installed factory presets update automatically when a new version ships re-tuned presets. Your own presets are never touched.",
+          "Noise gates follow your rig's noise floor: hiss is cut fully between notes and chords ring out to the end.",
+          "Modulation and pitch effects keep their level at every Mix setting (they used to lose up to 5 dB), and Dive Bomb and Whammy at full Mix are as loud as your dry guitar.",
+          "Hall, Cloud, Plate and Magneto reverbs start with a usable amount of reverb; Convolution starts subtle.",
+          "Wahs rebuilt on the measured response of the classic Cry Baby, for a natural vocal sweep before or after the amp.",
+          "Click SR or BUF in the info bar (standalone) to change the sample rate or buffer size.",
+          "Lower CPU load in DAWs at small buffer sizes: no more dropouts at 64 samples from cabs, synths or two-amp presets.",
+          "Fixed in Cubase: a freeze with some third-party plugins in a plugin block, a freeze when removing the plugin or closing the project, crackle with ASIO-Guard, and mono tracks getting only the left channel.",
+          "Fixed: the Convolution reverb played dry when no impulse response had been picked; gate, volume and boost blocks could stay off after switching them back on.",
+        ],
+      },
       {
         version: "v1.2.16",
         date: "November 2026",
